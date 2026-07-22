@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)file:///C:/Users/Derick%20Skolnic/Downloads/Bastion_Leave_Application_Form_7.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bastion Security — Leave Application Form</title>
+<style>
+  :root{
+    --navy:#13294B;--navy-2:#1E3A5F;--steel:#185FA5;--steel-light:#E6F1FB;
+    --signal:#D7263D;--signal-dk:#A41626;--gold:#C8A04B;
+    --ink:#1A1D21;--paper:#F7F6F2;--line:#C9CCD1;
+    --green:#15803D;--green-bg:#DCFCE7;--amber-bg:#FEF3C7;--amber-tx:#854F0B;
+    --primary-sel:#F6A623;--primary-bg:#FEF3C7;
+    --addl-sel:#7C3AED;--addl-bg:#EDE9FE;
+    --white:#FFFFFF;--grey:#5F5E5A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Segoe UI",-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    background:linear-gradient(160deg,#0d1b30,#13294B 40%,#1E3A5F);color:var(--ink);
+    padding:20px 12px 60px;-webkit-font-smoothing:antialiased;}
+  .sheet{max-width:780px;margin:0 auto;background:var(--paper);border-radius:6px;
+    overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08);}
+  .head{background:var(--navy);color:#fff;padding:12px 22px;display:flex;align-items:center;
+    gap:14px;border-bottom:3px solid var(--gold);}
+  .crest{height:54px;flex-shrink:0;display:flex;align-items:center;
+    background:#fff;border-radius:8px;border:2px solid var(--gold);padding:5px 10px;
+    box-shadow:inset 0 1px 3px rgba(0,0,0,.08);}
+  .crest img{height:100%;width:auto;display:block;object-fit:contain;}
+  .head h1{font-size:21px;letter-spacing:.04em;font-weight:700;line-height:1.1}
+  .head .sub{font-size:11px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;
+    margin-top:3px;font-weight:600}
+  .doc-tag{margin-left:auto;text-align:right;font-size:10px;letter-spacing:.12em;
+    color:#9DB4D0;text-transform:uppercase;line-height:1.7}
+  .title-strip{background:var(--steel);color:#fff;text-align:center;padding:6px;
+    font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    border-bottom:1px solid rgba(0,0,0,.15);}
+  .ref-strip{display:flex;justify-content:space-between;align-items:center;background:#fff;
+    padding:5px 22px;border-bottom:1px solid var(--line);font-size:10px;color:var(--grey);
+    letter-spacing:.04em;}
+  .ref-strip strong{color:var(--navy);font-weight:700;letter-spacing:.1em}
+  .body{padding:0 22px 14px}
+  .sec{margin-top:12px}
+  .sec-hd{background:var(--navy);color:#fff;font-size:11px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;padding:5px 10px;display:flex;align-items:center;gap:7px;
+    border-left:3px solid var(--gold);}
+  .sec-hd .ltr{width:18px;height:18px;background:var(--gold);color:var(--navy);border-radius:3px;
+    display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
+  .grid{border:1px solid var(--line);border-top:none}
+  .frow{display:grid;grid-template-columns:170px 1fr;border-top:1px solid var(--line);}
+  .frow:first-child{border-top:none}
+  .flabel{background:var(--steel-light);padding:6px 10px;font-size:11.5px;font-weight:600;
+    color:var(--steel);display:flex;align-items:center;border-right:1px solid var(--line);letter-spacing:.02em;}
+  .finput{padding:4px 9px;display:flex;align-items:center;background:#fff;flex-wrap:wrap}
+  .finput input[type=text],.finput input[type=email],.finput input[type=number],
+  .finput input[type=date],.finput select,.finput textarea{
+    width:100%;border:1px solid var(--line);border-radius:5px;padding:8px 10px;font-size:13px;
+    font-family:inherit;color:var(--ink);background:#fff;transition:border .15s,box-shadow .15s;}
+  .finput input:focus,.finput select:focus,.finput textarea:focus{
+    outline:none;border-color:var(--steel);box-shadow:0 0 0 3px rgba(24,95,165,.15);}
+  .finput input[readonly]{background:#F0EFEA;color:var(--grey);cursor:not-allowed}
+  .hint{font-size:11px;color:var(--grey);margin-top:3px;display:block}
+  select.btn3d{appearance:none;-webkit-appearance:none;cursor:pointer;font-weight:600;
+    background:linear-gradient(180deg,#fff,#eef1f5) padding-box,
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%23185FA5' stroke-width='2' fill='none'/></svg>") no-repeat right 12px center;
+    border:1px solid #b8c0cc;box-shadow:0 2px 0 #b8c0cc, 0 3px 5px rgba(0,0,0,.12);padding-right:32px;}
+  select.btn3d:active{box-shadow:0 1px 0 #b8c0cc;transform:translateY(1px)}
+
+  /* ── calendar picker ── */
+  .cal-block{width:100%;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;margin-top:4px}
+  .cal-type-bar{display:flex;align-items:center;gap:7px;padding:5px 9px;background:var(--steel-light);
+    border-bottom:1px solid var(--line)}
+  .cal-type-bar label{font-size:11px;font-weight:700;color:var(--steel);letter-spacing:.06em;text-transform:uppercase}
+  .cal-type-bar select{flex:1;max-width:230px}
+  .cal-nav{display:flex;align-items:center;justify-content:space-between;padding:4px 9px;
+    background:var(--navy);color:#fff}
+  .cal-nav button{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    color:#fff;width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:15px;line-height:1;
+    display:flex;align-items:center;justify-content:center}
+  .cal-nav button:hover{background:rgba(255,255,255,.25)}
+  .cal-nav .mlabel{font-size:13px;font-weight:700;letter-spacing:.06em}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;padding:5px}
+  .cal-dow{text-align:center;font-size:10px;font-weight:700;color:var(--grey);padding:3px 0;
+    text-transform:uppercase;letter-spacing:.04em}
+  .cal-day{text-align:center;font-size:11px;padding:4px 0;border-radius:4px;cursor:pointer;
+    border:1px solid transparent;transition:background .1s;user-select:none}
+  .cal-day:hover{background:#eef1f5}
+  .cal-day.empty{cursor:default;background:transparent}
+  .cal-day.today{border-color:var(--steel);font-weight:700}
+  .cal-day.sel-1{background:var(--primary-sel);color:#3a2700;font-weight:700}
+  .cal-day.sel-2{background:var(--addl-sel);color:#fff;font-weight:700}
+  .cal-day.day-locked{color:#c9ccd1;cursor:not-allowed;background:repeating-linear-gradient(135deg,#f3f3f1,#f3f3f1 4px,#ebebe8 4px,#ebebe8 8px)}
+  .cal-day.day-locked:hover{background:repeating-linear-gradient(135deg,#f3f3f1,#f3f3f1 4px,#ebebe8 4px,#ebebe8 8px)}
+  .cal-foot{display:flex;justify-content:space-between;align-items:center;padding:4px 9px;
+    border-top:1px solid var(--line);background:#fafafa;font-size:10px;color:var(--grey)}
+  .cal-foot button{background:#fff;border:1px solid var(--line);border-radius:5px;padding:4px 10px;
+    font-size:11px;cursor:pointer;color:var(--steel);font-weight:600}
+  .cal-count{font-weight:700;color:var(--navy)}
+  .dual-cal{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%}
+  .type-swatch-row{display:flex;gap:8px;flex-wrap:wrap;width:100%}
+  .swatch{flex:1;min-width:90px;border:2px solid var(--line);border-radius:8px;background:#fff;
+    padding:8px 6px;cursor:pointer;font-size:13px;font-weight:700;text-align:center;color:var(--ink);
+    transition:transform .08s,box-shadow .08s;box-shadow:0 2px 0 var(--line)}
+  .swatch span{display:block;font-size:9px;font-weight:500;margin-top:2px;color:var(--grey)}
+  .swatch:active{transform:translateY(1px);box-shadow:0 1px 0 var(--line)}
+  .swatch.active{box-shadow:0 0 0 3px rgba(0,0,0,.08) inset}
+  .sw-DO.active{background:var(--amb-bg,#FEF3C7);border-color:#D97706;color:#854F0B}
+  .sw-L.active{background:#EDE9FE;border-color:#7C3AED;color:#5B21B6}
+  .sw-SL.active{background:#FCE7F3;border-color:#DB2777;color:#9D174D}
+  .sw-CL.active{background:#FFF0F5;border-color:#E91E63;color:#C0392B}
+  .sw-DO.active span,.sw-L.active span,.sw-SL.active span,.sw-CL.active span{color:inherit;opacity:.75}
+  .cal-day.paint-DO{background:#FEF3C7;color:#854F0B;font-weight:700}
+  .cal-day.paint-L{background:#EDE9FE;color:#5B21B6;font-weight:700}
+  .cal-day.paint-SL{background:#FCE7F3;color:#9D174D;font-weight:700}
+  .cal-day.paint-CL{background:#FFF0F5;color:#C0392B;font-weight:700}
+  .bal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%}
+  .bal-card{border:1px solid var(--line);border-radius:7px;padding:7px 8px;background:#fff}
+  .bal-card .bt{font-size:10px;font-weight:700;letter-spacing:.04em;margin-bottom:3px}
+  .bal-card .bd{font-size:10px;color:var(--grey)}
+  .bal-card .bv{font-size:13px;font-weight:700;margin-top:2px}
+  .bal-DO .bt{color:#854F0B}.bal-L .bt{color:#5B21B6}.bal-SL .bt{color:#9D174D}.bal-CL .bt{color:#C0392B}
+  .gap-warning{background:#FEE2E2;border:1px solid #E24B4A;border-radius:6px;padding:8px 10px;
+    margin-top:6px;font-size:11px;color:#A32D2D;line-height:1.5}
+  .cal-day.gap-day{background:repeating-linear-gradient(135deg,#FEE2E2,#FEE2E2 4px,#FCC9C9 4px,#FCC9C9 8px);
+    color:#A32D2D;font-weight:700;border:1px solid #E24B4A}
+  .clash-warning{background:#FFF7ED;border:1px solid #F59E0B;border-radius:6px;padding:8px 10px;
+    margin-top:6px;font-size:11px;color:#854F0B;line-height:1.5;display:none}
+  .excess-warning{background:#FFF0F5;border:1px solid #E91E63;border-radius:6px;padding:8px 10px;
+    margin-top:6px;font-size:11px;color:#C0392B;line-height:1.5;display:none}
+  .cal-day.ph-day{background:#FFFBEB;border:1px solid #D97706;color:#78350F;font-weight:500}
+  .cal-day.ph-day::after{content:'\2605';font-size:6px;vertical-align:super;margin-left:1px;color:#B45309}
+  .ph-legend{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:10px;
+    color:#78350F;background:#FFFBEB;border:1px solid #D97706;border-radius:4px;padding:4px 8px}
+  .leave-summary{background:#EFF6FF;border:1px solid #185FA5;border-radius:6px;
+    padding:10px 14px;margin-top:8px;font-size:11px;display:none}
+  .leave-summary h4{color:#13294B;font-weight:700;font-size:11px;margin-bottom:6px;
+    letter-spacing:.05em;text-transform:uppercase}
+  .leave-summary-row{display:flex;align-items:center;gap:8px;margin:3px 0}
+  .ls-badge{display:inline-block;padding:2px 8px;border-radius:3px;font-weight:700;
+    font-size:10px;min-width:28px;text-align:center}
+  .ls-do{background:#FEF3C7;color:#854F0B;border:1px solid #D97706}
+  .ls-l{background:#EDE9FE;color:#5B21B6;border:1px solid #7C3AED}
+  .ls-sl{background:#FCE7F3;color:#9D174D;border:1px solid #DB2777}
+  .ls-cl{background:#FFF0F5;color:#C0392B;border:1px solid #E91E63}
+  .ls-total{background:#13294B;color:#C8A04B;border:1px solid #C8A04B;font-size:11px;
+    padding:3px 10px;border-radius:4px;font-weight:700}
+  .ls-dates{color:#5F5E5A;font-size:10.5px}
+  .ls-divider{border:none;border-top:1px solid #C7D9EF;margin:6px 0}
+  .ph-legend-dot{width:10px;height:10px;background:#FFFBEB;border:1px solid #D97706;
+    border-radius:2px;flex-shrink:0}
+  .cal-day.clash-day{background:#FEF3C7;color:#854F0B;font-weight:700;border:2px solid #F59E0B}
+  .motivation-wrap{display:none;margin-top:8px;border:2px solid #F59E0B;border-radius:6px;
+    overflow:hidden}
+  .motivation-hdr{background:#FEF3C7;padding:7px 10px;font-size:11px;font-weight:700;
+    color:#854F0B;border-bottom:1px solid #F59E0B;letter-spacing:.04em}
+  .motivation-hdr span{color:#A32D2D}
+  .motivation-wrap textarea{width:100%;border:none;padding:9px 10px;font-size:12px;
+    font-family:inherit;resize:vertical;min-height:72px;background:#FFFBF0;
+    color:#1A1D21;outline:none}
+  .motivation-count{font-size:10px;color:#854F0B;padding:3px 10px;background:#FEF3C7;
+    border-top:1px solid #F59E0B;text-align:right}
+  #emailFallback{display:none;background:#EFF6FF;border:2px solid #185FA5;border-radius:10px;
+    padding:18px 20px;margin:24px 0;font-size:12px}
+  #emailFallback h3{color:#13294B;font-size:14px;margin-bottom:12px;font-weight:700}
+  .fb-field{margin-bottom:10px}
+  .fb-label{font-size:10px;font-weight:700;color:#185FA5;letter-spacing:.08em;
+    text-transform:uppercase;margin-bottom:3px}
+  .fb-val{background:#fff;border:1px solid #185FA5;border-radius:5px;padding:7px 10px;
+    font-size:11px;color:#13294B;word-break:break-all}
+  .fb-body{background:#fff;border:1px solid #185FA5;border-radius:5px;padding:10px;
+    font-size:10.5px;color:#13294B;white-space:pre-wrap;max-height:260px;
+    overflow-y:auto;line-height:1.6}
+  .fb-copy{background:#185FA5;color:#fff;border:none;border-radius:5px;
+    padding:7px 16px;font-size:11px;font-weight:700;cursor:pointer;margin-top:8px}
+  .fb-copy:hover{background:#13294B}
+  .fb-note{font-size:10px;color:#5F5E5A;margin-top:10px;line-height:1.5;
+    background:#FEF3C7;border-radius:4px;padding:7px 10px;border-left:3px solid #D97706}
+
+  .notice{background:var(--signal);color:#fff;font-weight:600;font-size:12.5px;padding:11px 14px;
+    letter-spacing:.02em;line-height:1.5;border-radius:5px;margin:2px 0;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.2);}
+  .notice b{color:#FFE08A}
+  .decl{background:#fff;border:1px solid var(--line);padding:9px 11px;font-size:11px;line-height:1.45;
+    color:#33373d;border-radius:5px;}
+  .decl label{display:flex;gap:9px;margin-top:10px;align-items:flex-start;cursor:pointer;
+    font-weight:600;color:var(--navy)}
+  .decl input[type=checkbox]{margin-top:2px;width:16px;height:16px;accent-color:var(--steel)}
+  .sign-wrap{display:grid;grid-template-columns:1fr 180px;border:1px solid var(--line);
+    border-radius:5px;overflow:hidden;margin-top:4px}
+  .sign-name{padding:6px 10px;background:#fff}
+  .sign-name input{width:100%;border:none;border-bottom:2px dotted var(--line);font-size:14px;
+    font-family:"Brush Script MT","Segoe Script",cursive;padding:6px 2px;color:var(--navy);background:transparent}
+  .sign-name input:focus{outline:none;border-bottom-color:var(--steel)}
+  .sign-name .cap{font-size:10px;color:var(--grey);letter-spacing:.08em;text-transform:uppercase;margin-top:3px;display:block}
+  .sign-date{background:var(--steel-light);padding:6px 10px;border-left:1px solid var(--line);
+    display:flex;flex-direction:column;justify-content:center}
+  .sign-date .d{font-size:13px;font-weight:700;color:var(--navy)}
+  .sign-date .cap{font-size:9px;color:var(--grey);letter-spacing:.08em;text-transform:uppercase}
+  .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;align-items:center}
+  .btn{border:none;border-radius:7px;font-size:13px;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;cursor:pointer;padding:9px 18px;color:#fff;position:relative;
+    transition:transform .08s,box-shadow .08s;font-family:inherit;}
+  .btn-submit,.btn-sign{background:linear-gradient(180deg,#e23950,var(--signal));
+    box-shadow:0 4px 0 var(--signal-dk),0 6px 12px rgba(215,38,61,.4);}
+  .btn-submit:active,.btn-sign:active{transform:translateY(3px);box-shadow:0 1px 0 var(--signal-dk)}
+  .btn-ghost{background:linear-gradient(180deg,#fff,#eceef1);color:var(--navy);
+    box-shadow:0 3px 0 #c2c7cf,0 5px 10px rgba(0,0,0,.12);border:1px solid #c2c7cf;}
+  .btn-ghost:active{transform:translateY(2px);box-shadow:0 1px 0 #c2c7cf}
+  .status{font-size:12px;color:var(--grey);margin-top:8px;min-height:18px;font-weight:600;line-height:1.5}
+  .status.ok{color:var(--green)}
+  .status.warn{color:var(--signal)}
+  .status a{color:var(--steel);font-weight:700}
+  .locked{opacity:.5;pointer-events:none;filter:grayscale(.3)}
+  .stage-flag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;padding:3px 9px;
+    border-radius:99px;margin-left:auto;text-transform:uppercase;}
+  .flag-wait{background:#E5E7EB;color:#6B7280}
+  .flag-active{background:var(--green-bg);color:var(--green)}
+  .modal-bg{position:fixed;inset:0;background:rgba(10,20,40,.78);display:none;align-items:center;
+    justify-content:center;z-index:50;padding:18px;backdrop-filter:blur(3px)}
+  .modal-bg.show{display:flex}
+  .modal{background:var(--paper);border-radius:10px;max-width:440px;width:100%;overflow:hidden;
+    box-shadow:0 24px 70px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.1)}
+  .modal h3{background:var(--navy);color:#fff;padding:15px 20px;font-size:15px;letter-spacing:.06em;
+    border-bottom:3px solid var(--gold)}
+  .modal .mbody{padding:18px 20px}
+  .modal p{font-size:12.5px;color:var(--grey);margin-bottom:14px;line-height:1.55}
+  .route-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .route{border:1px solid var(--line);border-radius:8px;padding:14px 10px;text-align:center;
+    cursor:pointer;background:#fff;transition:transform .1s,border .1s,box-shadow .1s;box-shadow:0 2px 0 #d5d8dd}
+  .route:hover{border-color:var(--steel);transform:translateY(-2px);box-shadow:0 4px 10px rgba(24,95,165,.18)}
+  .route:active{transform:translateY(1px);box-shadow:0 1px 0 #d5d8dd}
+  .route .ic{font-size:24px;display:block;margin-bottom:6px}
+  .route .nm{font-size:12px;font-weight:700;color:var(--navy);letter-spacing:.03em}
+  .route .ds{font-size:10px;color:var(--grey);margin-top:2px}
+  .modal .close{display:block;width:100%;margin-top:14px;padding:10px;background:#eceef1;border:none;
+    border-radius:6px;font-weight:700;color:var(--navy);cursor:pointer;font-size:12px;letter-spacing:.06em}
+  .foot{background:var(--navy);color:#9DB4D0;font-size:10px;text-align:center;padding:12px;
+    letter-spacing:.1em;text-transform:uppercase}
+  @media(max-width:560px){
+    .frow{grid-template-columns:1fr}
+    .flabel{border-right:none;border-bottom:1px solid var(--line)}
+    .sign-wrap{grid-template-columns:1fr}
+    .sign-date{border-left:none;border-top:1px solid var(--line)}
+    .route-grid{grid-template-columns:1fr}
+    .dual-cal{grid-template-columns:1fr}
+    .head{flex-wrap:wrap}.doc-tag{margin-left:0;text-align:left;width:100%}
+  }
+  @media print{
+    @page{size:A4;margin:8mm}
+    body{background:#fff;padding:0;font-size:11px}
+    .sheet{box-shadow:none;max-width:100%;border-radius:0}
+    .no-print{display:none !important}
+    .sec{margin-top:7px}
+    .frow{grid-template-columns:150px 1fr}
+    .cal-block{margin-top:2px}
+    .decl{padding:6px 9px}
+    .sign-wrap{margin-top:2px}
+    .notice,.sec-hd,.head,.title-strip,.flabel,.cal-day.sel-1,.cal-day.sel-2{
+      -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<div class="sheet" id="sheet">
+  <div class="head">
+    <div class="crest"><img src="data:image/png;base64,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" alt="Bastion Security"></div>
+    <div><h1>BASTION SECURITY</h1><div class="sub">Integrity · Vigilance · Service</div></div>
+    <div class="doc-tag">Form: BS-LV-01<br>Rev: 2026.2<br>Confidential</div>
+  </div>
+  <div class="title-strip">Official Leave Application</div>
+  <div class="ref-strip">
+    <span>Application Ref: <strong id="refNo">BS-LV-2026-7248</strong></span>
+    <span>Contract: GOV 2026–2029</span>
+  </div>
+  <div class="body">
+
+    <!-- SECTION A -->
+    <div class="sec">
+      <div class="sec-hd"><span class="ltr">A</span> Applicant Details
+        <span class="stage-flag flag-active" id="flagA">Open</span></div>
+      <div class="grid">
+        <div class="frow"><div class="flabel">Employee Name</div>
+          <div class="finput">
+            <select class="btn3d" id="empName" onchange="autofillEmp()">
+              <option value="">— Select member —</option>
+              <option data-badge="SEC0018" data-sec="NJOC">Minnaar Fullard</option>
+              <option data-badge="SEC0113" data-sec="NJOC">Derek Skolnic</option>
+              <option data-badge="SEC0112" data-sec="QRF/Trg">Pieter Klue</option>
+              <option data-badge="SEC0017" data-sec="QRF/Trg">Matthys De Villiers</option>
+            </select></div></div>
+        <div class="frow"><div class="flabel">Badge Number</div>
+          <div class="finput"><input type="text" id="badge" readonly="" placeholder="Auto-filled"></div></div>
+        <div class="frow"><div class="flabel">Section / Post</div>
+          <div class="finput"><input type="text" id="section" readonly="" placeholder="Auto-filled"></div></div>
+        <div class="frow"><div class="flabel">Date of Application</div>
+          <div class="finput"><input type="date" id="appDate"></div></div>
+      </div>
+    </div>
+
+    <!-- SECTION B -->
+    <div class="sec">
+      <div class="sec-hd"><span class="ltr">B</span> Leave Details</div>
+      <div class="grid">
+        <div class="frow">
+          <div class="flabel">Select Leave Type<br><span style="font-weight:400;font-size:10px;color:var(--grey)">Then tap days below</span></div>
+          <div class="finput">
+            <div class="type-swatch-row" id="typeSwatches">
+              <button type="button" class="swatch sw-DO active" data-type="DO" onclick="selectPaintType(&#39;DO&#39;)">DO<span>Days Off</span></button>
+              <button type="button" class="swatch sw-L" data-type="L" onclick="selectPaintType(&#39;L&#39;)">L<span>Annual Leave</span></button>
+              <button type="button" class="swatch sw-SL" data-type="SL" onclick="selectPaintType(&#39;SL&#39;)">SL<span>Sick Leave</span></button>
+              <button type="button" class="swatch sw-CL" data-type="CL" onclick="selectPaintType(&#39;CL&#39;)">CL<span>Compassionate</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="flabel">Select Leave Period<br><span style="font-weight:400;font-size:10px;color:var(--grey)">Must be continuous — no open days</span></div>
+          <div class="finput">
+            <div class="cal-block" style="width:100%">
+              <div class="cal-nav">
+                <button type="button" onclick="navCal(-1)">‹</button>
+                <span class="mlabel" id="calLabel">July 2026</span>
+                <button type="button" onclick="navCal(1)">›</button>
+              </div>
+              <div class="cal-grid" id="calGrid"><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div><div class="cal-dow">Su</div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day today ph-day" title="King Sobhuza Birthday — higher alert status. Plan leave carefully around this date.">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div><div class="cal-day">31</div></div>
+              <div class="cal-foot">
+                <span class="cal-count" id="calCountAll">0 days selected</span>
+                <button type="button" onclick="clearAllCal()">Clear all</button>
+              </div>
+              <div class="ph-legend">
+                <span class="ph-legend-dot"></span>
+                <span>★ National Public Holiday — higher security alert status. Plan leave with full manning where possible.</span>
+              </div>
+              <!-- Leave Period Summary Panel -->
+              <div class="leave-summary" id="leaveSummary" style="display: none;">
+                <h4>📅 Leave Period Summary</h4>
+                <div id="leaveSummaryRows"></div>
+                <hr class="ls-divider">
+                <div class="leave-summary-row">
+                  <span class="ls-total" id="lsTotalDays">0 days total</span>
+                  <span class="ls-dates" id="lsDateRange"></span>
+                </div>
+              </div>
+              <div id="gapWarning" class="gap-warning" style="display:none"></div>
+              <div id="clashWarning" class="clash-warning" style="display: none;"></div>
+              <div id="excessWarning" class="excess-warning" style="display: none;"></div>
+              <div class="motivation-wrap" id="motivationWrap" style="display: none;">
+                <div class="motivation-hdr">
+                  ⚠ Override required — <span id="motivationHdrReason">mandatory motivation</span>
+                </div>
+                <textarea id="clashMotivation" maxlength="500" placeholder="State the operational reason for this leave overlap. The HOD and COO/Director will review this motivation alongside your application." oninput="onMotivationInput()"></textarea>
+                <div class="motivation-count" id="motivationCount">0 / 500 characters</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frow"><div class="flabel">Days Applied &amp; Live Balance</div>
+          <div class="finput">
+            <div class="bal-grid" id="balGrid"><div class="bal-card bal-DO" id="balCard_DO"><div class="bt">DO</div><div class="bd" id="balDays_DO">0 days</div><div class="bv" id="balVal_DO">—</div></div><div class="bal-card bal-L" id="balCard_L"><div class="bt">L</div><div class="bd" id="balDays_L">0 days</div><div class="bv" id="balVal_L">—</div></div><div class="bal-card bal-SL" id="balCard_SL"><div class="bt">SL</div><div class="bd" id="balDays_SL">0 days</div><div class="bv" id="balVal_SL">—</div></div><div class="bal-card bal-CL" id="balCard_CL"><div class="bt">CL</div><div class="bd" id="balDays_CL">0 days</div><div class="bv" id="balVal_CL">—</div></div></div>
+          </div></div>
+        <input type="hidden" id="startDate"><input type="hidden" id="endDate"><input type="hidden" id="numDays">
+        <div class="frow"><div class="flabel">Reason for Leave <span style="color:#DC2626;font-size:10px;font-weight:700">★ required</span></div>
+          <div class="finput"><select class="btn3d" id="reason" onchange="syncSubmitState();this.style.borderColor=this.value?&#39;&#39;:&#39;#DC2626&#39;;" style="border:2px solid #DC2626">
+            <option value="">— Select reason —</option>
+            <option value="Planned Leave">Planned Leave</option>
+            <option value="Emergency Leave">Emergency Leave</option>
+            <option value="Sick Leave">Sick Leave</option>
+            <option value="Compassionate Leave">Compassionate Leave</option>
+          </select></div></div>
+        <div class="frow"><div class="flabel">Notice Rule</div>
+          <div class="finput"><div class="notice">
+            <b>DO / Annual Leave (L):</b> 96-hour advance notice REQUIRED &nbsp;|&nbsp;
+            <b>CL:</b> IMMEDIATE — no advance restriction (emergency)</div></div></div>
+      </div>
+    </div>
+
+    <!-- SECTION C (hidden — Notice Rule moved into Section B; routing is email-only) -->
+    <div class="sec" style="display:none">
+      <input type="text" id="submitStamp" readonly="" value="">
+      <select id="submitVia"><option value="Email" selected="">Email</option></select>
+      <input type="email" id="appEmail" value="">
+    </div>
+
+    <!-- SECTION D -->
+    <div class="sec">
+      <div class="sec-hd"><span class="ltr">D</span> Applicant Declaration</div>
+      <div class="decl">
+        I confirm the information above is correct and that I have sufficient leave balance.
+        I acknowledge the advance-notice requirements applicable to my leave type and that this
+        application is subject to operational requirements and the approval of my HOD and the Director/COO.
+        <label><input type="checkbox" id="declAgree" onchange="syncSubmitState()">
+          I have read and accept the declaration above.</label>
+      </div>
+      <div class="sign-wrap">
+        <div class="sign-name">
+          <input type="text" id="appSignName" placeholder="Type full name to sign" oninput="syncSubmitState()">
+          <span class="cap">Applicant signature (typed)</span></div>
+        <div class="sign-date"><span class="cap">Date signed</span><span class="d" id="appSignDate">—</span></div>
+      </div>
+      <div class="actions no-print">
+        <button class="btn btn-submit" id="submitBtn" onclick="submitApplication()" disabled="" title="Select your name in Section A first">▶ Submit Application</button>
+        <button class="btn btn-ghost" onclick="saveCopy()">⤓ Save My Copy</button>
+        <button class="btn btn-ghost" onclick="window.print()">⎙ Print A4</button>
+        <button class="btn btn-ghost" onclick="resetForm()">↺ Clear Form</button>
+      </div>
+      <div id="saveCopyStatus" style="display:none;margin:6px 0;padding:8px 12px;background:#DCFCE7;border:1px solid #15803D;border-radius:6px;font-size:11px;color:#15803D;font-weight:600"></div>
+      <div id="submitFallback" style="display:none;margin:10px 0;padding:10px;
+           background:#FEF3C7;border:1px solid #D97706;border-radius:6px;font-size:11px;color:#78350F">
+        <strong>Submit button not responding?</strong> 
+        <a href="file:///C:/Users/Derick%20Skolnic/Downloads/Bastion_Leave_Application_Form_7.html#" onclick="submitApplication();return false;" style="color:#13294B;font-weight:700;text-decoration:underline">
+           Click here to submit your application</a>
+      </div>
+      <!-- ── Email Fallback Panel ─────────────────────────────────────────── -->
+      <div id="emailFallback">
+        <h3>📧 Open Outlook → New Email → copy the fields below</h3>
+        <div class="fb-note">
+          <b>3 steps:</b><br>
+          1. Open <b>Outlook</b> → click <b>New Email</b><br>
+          2. Copy each field below into the matching Outlook field<br>
+          3. Attach the file saved to your Downloads folder:
+          &nbsp;<b><span id="fbFileName" style="color:#13294B;background:#FEF3C7;padding:1px 6px;border-radius:3px;font-size:10px"></span></b>
+        </div>
+        <div class="fb-field">
+          <div class="fb-label">📧 To — click To: in Outlook and paste this</div>
+          <div class="fb-val" id="fbTo"></div>
+          <button class="fb-copy" style="margin-top:4px;padding:4px 12px;font-size:10px" onclick="copyField(&#39;fbTo&#39;,this)">📋 Copy</button>
+        </div>
+        <div class="fb-field">
+          <div class="fb-label">👥 CC — click CC: in Outlook and paste this</div>
+          <div class="fb-val" id="fbCc"></div>
+          <button class="fb-copy" style="margin-top:4px;padding:4px 12px;font-size:10px" onclick="copyField(&#39;fbCc&#39;,this)">📋 Copy</button>
+        </div>
+        <div class="fb-field">
+          <div class="fb-label">📄 Subject — paste into the Subject line</div>
+          <div class="fb-val" id="fbSubj"></div>
+          <button class="fb-copy" style="margin-top:4px;padding:4px 12px;font-size:10px" onclick="copyField(&#39;fbSubj&#39;,this)">📋 Copy</button>
+        </div>
+        <div class="fb-field">
+          <div class="fb-label">📝 Email Body — paste into the Outlook email body</div>
+          <div class="fb-body" id="fbBody"></div>
+        </div>
+        <button class="fb-copy" style="width:100%;padding:10px;font-size:12px;margin-top:8px" onclick="copyField(&#39;fbBody&#39;,this)">📋 Copy Full Email Body to Clipboard</button>
+      </div>
+      </div>
+      <div class="status" id="statusA"></div>
+    </div>
+
+    <!-- SECTION E -->
+    <div class="sec" id="secE">
+      <div class="sec-hd"><span class="ltr">E</span> HOD Recommendation
+        <span class="stage-flag flag-wait" id="flagE">Awaiting submit</span></div>
+      <div class="grid locked" id="gridE">
+        <div class="frow"><div class="flabel">HOD / Deputy HOD</div>
+          <div class="finput"><select class="btn3d" id="hodName">
+            <option value="">— Select authority —</option>
+            <option data-badge="SEC0018">Minnaar Fullard / SEC0018 (HOD)</option>
+            <option data-badge="SEC0113">Derek Skolnic / SEC0113 (Deputy HOD)</option>
+          </select></div></div>
+        <div class="frow"><div class="flabel">Recommendation</div>
+          <div class="finput"><select class="btn3d" id="hodDecision">
+            <option value="">— Decision —</option>
+            <option value="Recommended">Recommended</option>
+            <option value="Not Recommended">Not Recommended</option>
+          </select></div></div>
+        <div class="frow"><div class="flabel">Comments</div>
+          <div class="finput"><textarea id="hodComments" rows="2" maxlength="500" placeholder="Up to 500 characters" oninput="charCount(this,&#39;hodCount&#39;)"></textarea></div></div>
+        <div class="frow"><div class="flabel" style="font-size:11px">Characters</div>
+          <div class="finput"><span class="hint" id="hodCount">0 / 500</span></div></div>
+      </div>
+      <div class="sign-wrap locked" id="signE">
+        <div class="sign-name">
+          <input type="text" id="hodSignName" placeholder="Type full name to sign" oninput="syncHodState()">
+          <span class="cap">HOD / Deputy HOD signature (typed)</span></div>
+        <div class="sign-date"><span class="cap">Date signed</span><span class="d" id="hodSignDate">—</span></div>
+      </div>
+      <div class="actions no-print" id="actionsE" style="opacity:.5;pointer-events:none">
+        <button class="btn btn-sign" id="hodSignBtn" onclick="hodSign()" disabled="">▶ Sign &amp; Forward to COO/Director</button>
+        <button class="btn btn-ghost" onclick="saveCopy()">⤓ Save Copy</button>
+      </div>
+      <div class="status" id="statusE"></div>
+    </div>
+
+    <!-- SECTION F -->
+    <div class="sec" id="secF">
+      <div class="sec-hd"><span class="ltr">F</span> Director / COO Decision
+        <span class="stage-flag flag-wait" id="flagF">Awaiting HOD</span></div>
+      <div class="grid locked" id="gridF">
+        <div class="frow"><div class="flabel">Approving Authority</div>
+          <div class="finput"><select class="btn3d" id="cooName">
+            <option value="">— Select authority —</option>
+            <option data-email="andre@bastionsecurity.org">Andre Van Tonder — COO</option>
+            <option data-email="arno@bastionsecurity.org">Arno Pienaar — Director</option>
+          </select></div></div>
+        <div class="frow"><div class="flabel">Decision</div>
+          <div class="finput"><select class="btn3d" id="cooDecision" onchange="toggleReject()">
+            <option value="">— Decision —</option>
+            <option value="Approved">Approved</option>
+            <option value="Conditionally Approved">Conditionally Approved</option>
+            <option value="Rejected">Rejected</option>
+          </select></div></div>
+        <div class="frow" id="rejectRow" style="display:none"><div class="flabel">If Rejected — Reason</div>
+          <div class="finput"><textarea id="rejectReason" rows="2" maxlength="500" placeholder="Up to 500 characters" oninput="charCount(this,&#39;rejCount&#39;)"></textarea></div></div>
+        <div class="frow" id="rejCountRow" style="display:none"><div class="flabel" style="font-size:11px">Characters</div>
+          <div class="finput"><span class="hint" id="rejCount">0 / 500</span></div></div>
+      </div>
+      <div class="sign-wrap locked" id="signF">
+        <div class="sign-name">
+          <input type="text" id="cooSignName" placeholder="Type full name to sign" oninput="syncCooState()">
+          <span class="cap">Director / COO signature (typed)</span></div>
+        <div class="sign-date"><span class="cap">Date signed</span><span class="d" id="cooSignDate">—</span></div>
+      </div>
+      <div class="actions no-print" id="actionsF" style="opacity:.5;pointer-events:none">
+        <button class="btn btn-sign" id="cooSignBtn" onclick="cooSign()" disabled="">▶ Sign &amp; Return to Applicant</button>
+        <button class="btn btn-ghost" onclick="saveCopy()">⤓ Save Copy</button>
+      </div>
+      <div class="status" id="statusF"></div>
+    </div>
+
+  </div>
+  <div class="foot">Bastion Security · Daily Accountability &amp; Leave Planner · Form BS-LV-01 · 2026</div>
+
+
+<!-- Routing modal -->
+<div class="modal-bg" id="routeModal">
+  <div class="modal">
+    <h3 id="routeTitle">Send Application</h3>
+    <div class="mbody">
+      <div style="background:#FEF3C7;border:1px solid #D97706;border-radius:6px;
+        padding:9px 12px;font-size:11.5px;color:#854F0B;margin-bottom:10px;line-height:1.5">
+        <b>📎 Before you send:</b> A new tab will open with your saved form.
+        Press <b>Ctrl+S</b> in that tab to save the file, then close it and return here.
+        Attach that saved file to your Outlook email before pressing Send.
+      </div>
+      <p id="routeMsg">Choose how to send this application.</p>
+      <div id="authorityPicker" style="display:none;margin-bottom:12px;padding:10px 0;border-bottom:1px solid var(--line)">
+        <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+          color:var(--navy);margin-bottom:8px">Forward to which authority?</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div class="route" onclick="selectAuthority(&#39;coo&#39;)" id="pickCOO">
+            <span class="ic">👔</span>
+            <span class="nm">COO</span>
+            <span class="ds">Andre Van Tonder<br>andre@bastionsecurity.org</span>
+          </div>
+          <div class="route" onclick="selectAuthority(&#39;dir&#39;)" id="pickDir">
+            <span class="ic">⭐</span>
+            <span class="nm">Director</span>
+            <span class="ds">Arno Pienaar<br>arno@bastionsecurity.org</span>
+          </div>
+        </div>
+      </div>
+      <div class="route-grid" style="grid-template-columns:1fr 1fr">
+        <div class="route" onclick="route(&#39;Email&#39;)"><span class="ic">✉️</span><span class="nm">Outlook Email</span><span class="ds">@bastionsecurity.org</span></div>
+        <div class="route" onclick="route(&#39;Manual&#39;)"><span class="ic">⎙</span><span class="nm">Manual Print</span><span class="ds">A4 hard copy</span></div>
+      </div>
+      <button class="close" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const BALANCES={
+  "Minnaar Fullard":{DO:38,L:15,CL:14,SL:30},
+  "Derek Skolnic":{DO:10,L:15,CL:14,SL:30},
+  "Pieter Klue":{DO:13,L:15,CL:14,SL:30},
+  "Matthys De Villiers":{DO:-2,L:15,CL:14,SL:30}
+};
+// Manning pairs: each member's section partner
+const MANNING_PAIRS={
+  "Minnaar Fullard":"Derek Skolnic",
+  "Derek Skolnic":"Minnaar Fullard",
+  "Pieter Klue":"Matthys De Villiers",
+  "Matthys De Villiers":"Pieter Klue"
+};
+const MANNING_SECTIONS={
+  "Minnaar Fullard":"NJOC","Derek Skolnic":"NJOC",
+  "Pieter Klue":"QRF/Trg","Matthys De Villiers":"QRF/Trg"
+};
+// Approved future leave per employee — update this whenever new leave is approved.
+// Format: Set of ISO date strings ('2026-07-22') where that member is on approved leave.
+// HOD updates this data in the form file after each approval until Phase 2 connects live.
+const APPROVED_LEAVE={
+  "Minnaar Fullard":new Set([]),
+  "Derek Skolnic":new Set([]),
+  "Pieter Klue":new Set([]),
+  "Matthys De Villiers":new Set([])
+};
+// Eswatini Public Holidays 2026 — gazette dates for visual highlighting
+// Update each year when gazette is published. No logic depends on this list —
+// purely for the soft highlight on the leave calendar.
+const PH_DATES_2026=new Set([
+  '2026-01-01','2026-03-16','2026-04-03','2026-04-06',
+  '2026-04-20','2026-04-21','2026-04-25','2026-05-01',
+  '2026-05-14','2026-07-22','2026-09-01','2026-09-06',
+  '2026-09-08','2026-12-18','2026-12-25','2026-12-26','2026-12-29'
+]);
+const PH_LABELS_2026={
+  '2026-01-01':'New Year\u2019s Day',
+  '2026-03-16':'Lutsango Day',
+  '2026-04-03':'Good Friday',
+  '2026-04-06':'Easter Monday',
+  '2026-04-20':'King\u2019s Birthday',
+  '2026-04-21':'HMK Birthday Day Off',
+  '2026-04-25':'National Flag Day',
+  '2026-05-01':'Worker’s Day',
+  '2026-05-14':'Ascension Day',
+  '2026-07-22':'King Sobhuza Birthday',
+  '2026-09-01':'Umhlanga Day',
+  '2026-09-06':'Somhlolo Day (Independence)',
+  '2026-09-08':'Day Off for Somhlolo',
+  '2026-12-18':'Incwala Day',
+  '2026-12-25':'Christmas Day',
+  '2026-12-26':'Boxing Day',
+  '2026-12-29':'Day Off for Incwala'
+};
+
+const HOD_EMAIL_MINNAAR="minnaar.fullard@bastionsecurity.org";
+const HOD_EMAIL_DEREK="derek@bastionsecurity.org";
+const COO_EMAIL="andre@bastionsecurity.org";
+const DIR_EMAIL="arno@bastionsecurity.org";
+const CC_ADMIN_1="sethu@bastionsecurity.org";      // Additional CC — Decision 2
+const CC_ADMIN_2="andriesp@bastionsecurity.org";   // Additional CC — Decision 2
+let routeContext="submit";
+let authorityTarget="coo"; // default COO; HOD can switch to Director
+
+// calendar state — single continuous calendar, days painted by leave type
+const today=new Date();
+const calView={year:today.getFullYear(),month:today.getMonth()};
+const LEAVE_TYPES=['DO','L','SL','CL'];
+const LEAVE_LABELS={DO:'DO — Days Off',L:'L — Annual Leave',SL:'SL — Sick Leave',CL:'CL — Compassionate'};
+// dayPaint: ISO date string -> leave type code ('DO'|'L'|'SL'|'CL')
+const dayPaint=new Map();
+let activePaintType='DO';
+
+// ── State restoration — runs when HOD/Director opens saved file ──────────────
+function restoreSnapshot(){
+  const sc=document.getElementById('__bastionState');
+  if(!sc)return false;
+  try{
+    const st=JSON.parse(sc.textContent);
+    if(!st||st.version!==2)return false;
+    // Restore calendar paint
+    dayPaint.clear();
+    Object.entries(st.dayPaint||{}).forEach(([k,v])=>dayPaint.set(k,v));
+    if(st.routeContext)routeContext=st.routeContext;
+    // Restore all field values
+    Object.entries(st.fields||{}).forEach(([id,val])=>{
+      const el=document.getElementById(id);if(el)el.value=val;
+    });
+    Object.entries(st.checks||{}).forEach(([id,chk])=>{
+      const el=document.getElementById(id);if(el)el.checked=chk;
+    });
+    Object.entries(st.dates||{}).forEach(([id,txt])=>{
+      const el=document.getElementById(id);if(el)el.textContent=txt;
+    });
+    Object.entries(st.texts||{}).forEach(([id,txt])=>{
+      const el=document.getElementById(id);if(el)el.textContent=txt;
+    });
+    // Unlock sections based on workflow stage
+    // routeContext='submit' means HOD needs to act → unlock E
+    // routeContext='hod' means Director/COO needs to act → unlock E+F
+    // routeContext='coo' means returning to applicant → E+F readable
+    if(st.routeContext==='submit'||st.routeContext==='hod'||st.routeContext==='coo'){
+      unlockSection('E');
+    }
+    if(st.routeContext==='hod'||st.routeContext==='coo'){
+      unlockSection('F');
+    }
+    // Show green restored banner
+    const b=document.createElement('div');
+    b.style.cssText='background:#DCFCE7;color:#15803D;text-align:center;padding:10px 20px;'+
+      'font-size:12px;font-weight:700;border-bottom:3px solid #15803D;font-family:Arial,sans-serif';
+    b.textContent='\u2713 Application data loaded from saved copy — all fields restored. Scroll down to complete your section.';
+    document.body.insertBefore(b,document.body.firstChild);
+    return true;
+  }catch(e){console.error('Restore failed:',e);return false;}
+}
+
+addEventListener('load',()=>{
+  const restored=restoreSnapshot();
+  if(!restored){
+    // Fresh form — set date and generate reference
+    document.getElementById('appDate').value=today.toISOString().slice(0,10);
+    document.getElementById('refNo').textContent=
+      'BS-LV-'+today.getFullYear()+'-'+String(Math.floor(Math.random()*9000)+1000);
+  }
+  renderCal();renderBalGrid();
+  syncSubmitState();
+});
+
+function iso(y,m,d){return y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');}
+function fmtNow(){const d=new Date();
+  return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+
+    ' · '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});}
+function fmtDate(){return new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});}
+function prettyISO(s){const d=new Date(s+'T00:00:00');
+  return d.toLocaleDateString('en-GB',{weekday:'short',day:'2-digit',month:'short',year:'numeric'});}
+
+function selectPaintType(type){
+  activePaintType=type;
+  document.querySelectorAll('#typeSwatches .swatch').forEach(b=>{
+    b.classList.toggle('active', b.dataset.type===type);
+  });
+}
+
+function findClashDates(){
+  // Returns array of ISO dates where applicant's selected day clashes with
+  // their section partner's already-approved leave.
+  const name=document.getElementById('empName').value;
+  if(!name||!MANNING_PAIRS[name])return [];
+  const partner=MANNING_PAIRS[name];
+  const partnerLeave=APPROVED_LEAVE[partner]||new Set();
+  const clashes=[];
+  for(const dISO of dayPaint.keys()){
+    if(partnerLeave.has(dISO))clashes.push(dISO);
+  }
+  return clashes.sort();
+}
+function renderExcessWarning(){
+  const total=dayPaint.size;
+  const box=document.getElementById('excessWarning');
+  if(total<=MAX_DAYS){
+    box.style.display='none';box.innerHTML='';
+  }else{
+    const over=total-MAX_DAYS;
+    box.style.display='block';
+    box.innerHTML='<b>⚠ Leave period exceeds '+MAX_DAYS+' days:</b> You have selected <b>'+
+      total+' days</b> — '+over+' day'+(over>1?'s':'')+
+      ' over the standard '+MAX_DAYS+'-day maximum per application. '+
+      'Provide a motivation below explaining why this extended period is required.';
+  }
+}
+function MAX_DAYS_CONST(){return 14;}
+const MAX_DAYS=14;
+function needsMotivation(){
+  return findClashDates().length>0||dayPaint.size>MAX_DAYS;
+}
+function updateMotivationHeader(){
+  const hasClash=findClashDates().length>0;
+  const hasExcess=dayPaint.size>MAX_DAYS;
+  const el=document.getElementById('motivationHdrReason');
+  if(!el)return;
+  if(hasClash&&hasExcess)
+    el.textContent='manning clash + extended leave — mandatory motivation';
+  else if(hasClash)
+    el.textContent='manning clash — mandatory motivation';
+  else if(hasExcess)
+    el.textContent='extended leave — mandatory motivation';
+}
+function renderClashWarning(){
+  const clashes=findClashDates();
+  const box=document.getElementById('clashWarning');
+  if(clashes.length===0){
+    box.style.display='none';box.innerHTML='';
+  }else{
+    const name=document.getElementById('empName').value;
+    const partner=MANNING_PAIRS[name];
+    const section=MANNING_SECTIONS[name];
+    const list=clashes.map(d=>prettyISO(d)).join(', ');
+    box.style.display='block';
+    box.innerHTML='<b>⚠ Manning clash — '+section+' section:</b> '+
+      (clashes.length===1?'This day':'These days')+
+      ' (<b>'+list+'</b>) overlap with <b>'+partner+'’s</b> approved leave. '+
+      'At least one '+section+' member must remain BOG at all times. '+
+      'Provide a motivation below.';
+  }
+  renderExcessWarning();
+  const show=needsMotivation();
+  const mwrap=document.getElementById('motivationWrap');
+  mwrap.style.display=show?'block':'none';
+  updateMotivationHeader();
+  syncSubmitState();
+}
+function copyField(id,btn){
+  const el=document.getElementById(id);
+  const text=el.textContent||el.innerText||'';
+  const orig=btn?btn.innerHTML:'';
+  navigator.clipboard.writeText(text).then(()=>{
+    if(btn){btn.innerHTML='\u2714 Copied!';setTimeout(()=>btn.innerHTML=orig,2000);}
+  }).catch(()=>{
+    const range=document.createRange();
+    range.selectNodeContents(el);
+    const sel=window.getSelection();
+    sel.removeAllRanges();sel.addRange(range);
+    document.execCommand('copy');
+    if(btn){btn.innerHTML='\u2714 Copied!';setTimeout(()=>btn.innerHTML=orig,2000);}
+  });
+}
+function copyEmailBody(){copyField('fbBody',document.querySelector('.fb-copy'));}
+function onMotivationInput(){
+  const ta=document.getElementById('clashMotivation');
+  document.getElementById('motivationCount').textContent=ta.value.length+' / 500 characters';
+  syncSubmitState();
+}
+
+function renderLeaveSummary(){
+  const panel=document.getElementById('leaveSummary');
+  const rowsEl=document.getElementById('leaveSummaryRows');
+  const totalEl=document.getElementById('lsTotalDays');
+  const rangeEl=document.getElementById('lsDateRange');
+  if(!panel||!rowsEl)return;
+
+  if(dayPaint.size===0){panel.style.display='none';return;}
+
+  // Group dates by leave type, find ranges per type
+  const byType={};
+  const allDates=[];
+  for(const [dISO,type] of dayPaint){
+    if(!byType[type])byType[type]=[];
+    byType[type].push(dISO);
+    allDates.push(dISO);
+  }
+  allDates.sort();
+
+  // Format a date range nicely
+  function fmtRange(dates){
+    dates=dates.slice().sort();
+    if(dates.length===1)return prettyISO(dates[0]).replace(/\w+ /,'');
+    const s=new Date(dates[0]+'T00:00:00');
+    const e=new Date(dates[dates.length-1]+'T00:00:00');
+    const opts={day:'2-digit',month:'short'};
+    const sy=s.getFullYear(),ey=e.getFullYear();
+    if(sy===ey)
+      return s.toLocaleDateString('en-GB',opts)+' – '+e.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+    return s.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+
+      ' – '+e.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+  }
+
+  const typeOrder=['DO','L','CL','SL'];
+  const typeLabel={'DO':'DO','L':'L','CL':'CL','SL':'SL'};
+  const typeName={'DO':'Days Off','L':'Annual Leave','CL':'Compassionate Leave','SL':'Sick Leave'};
+  const typeCls={'DO':'ls-do','L':'ls-l','CL':'ls-cl','SL':'ls-sl'};
+
+  let rows='';
+  for(const t of typeOrder){
+    if(!byType[t])continue;
+    const dates=byType[t].sort();
+    const count=dates.length;
+    rows+=`<div class="leave-summary-row">
+      <span class="ls-badge ${typeCls[t]}">${typeLabel[t]}</span>
+      <span class="ls-dates"><strong>${count} day${count>1?'s':''}</strong> &nbsp;&mdash;&nbsp; ${fmtRange(dates)}</span>
+    </div>`;
+  }
+  rowsEl.innerHTML=rows;
+
+  const total=dayPaint.size;
+  totalEl.textContent=total+' day'+(total>1?'s':'')+' total';
+
+  // Overall date range
+  if(allDates.length>0){
+    const first=new Date(allDates[0]+'T00:00:00');
+    const last=new Date(allDates[allDates.length-1]+'T00:00:00');
+    const opts={day:'2-digit',month:'short',year:'numeric'};
+    rangeEl.textContent=first.toLocaleDateString('en-GB',opts)+' – '+last.toLocaleDateString('en-GB',opts);
+  }
+
+  panel.style.display='block';
+}
+
+function findGapDates(){
+  // Every calendar day between the earliest and latest painted day must be painted.
+  // Returns an array of ISO date strings that are NOT painted but fall inside that span.
+  if(dayPaint.size===0)return [];
+  const allDates=[...dayPaint.keys()].sort();
+  const start=new Date(allDates[0]+'T00:00:00');
+  const end=new Date(allDates[allDates.length-1]+'T00:00:00');
+  const gaps=[];
+  const cur=new Date(start);
+  while(cur<=end){
+    const dISO=iso(cur.getFullYear(),cur.getMonth(),cur.getDate());
+    if(!dayPaint.has(dISO))gaps.push(dISO);
+    cur.setDate(cur.getDate()+1);
+  }
+  return gaps;
+}
+function renderGapWarning(){
+  const gaps=findGapDates();
+  const box=document.getElementById('gapWarning');
+  if(gaps.length===0){
+    box.style.display='none';box.innerHTML='';
+    return gaps;
+  }
+  const list=gaps.map(d=>prettyISO(d)).join(', ');
+  box.style.display='block';
+  box.innerHTML='<b>⚠ Gap in leave period:</b> the following day'+(gaps.length>1?'s':'')+
+    ' inside your selected range '+(gaps.length>1?'are':'is')+' not assigned a leave type — '+
+    '<b>'+list+'</b>. Leave must be continuous with no open days. '+
+    'Paint '+(gaps.length>1?'these days':'this day')+' or split into separate applications.';
+  return gaps;
+}
+
+function renderCal(){
+  const grid=document.getElementById('calGrid');
+  document.getElementById('calLabel').textContent=
+    new Date(calView.year,calView.month,1).toLocaleDateString('en-GB',{month:'long',year:'numeric'});
+  grid.innerHTML='';
+  ['Mo','Tu','We','Th','Fr','Sa','Su'].forEach(d=>{
+    const c=document.createElement('div');c.className='cal-dow';c.textContent=d;grid.appendChild(c);});
+  const first=new Date(calView.year,calView.month,1);
+  const startDow=(first.getDay()+6)%7;
+  const dim=new Date(calView.year,calView.month+1,0).getDate();
+  for(let i=0;i<startDow;i++){const e=document.createElement('div');e.className='cal-day empty';grid.appendChild(e);}
+  const todayISO=iso(today.getFullYear(),today.getMonth(),today.getDate());
+  const gapSet=new Set(findGapDates());
+  const clashSet=new Set(findClashDates());
+  for(let d=1;d<=dim;d++){
+    const cell=document.createElement('div');
+    cell.className='cal-day';cell.textContent=d;
+    const dISO=iso(calView.year,calView.month,d);
+    if(dISO===todayISO)cell.classList.add('today');
+    const painted=dayPaint.get(dISO);
+    if(painted)cell.classList.add('paint-'+painted);
+    if(gapSet.has(dISO))cell.classList.add('gap-day');
+    if(clashSet.has(dISO))cell.classList.add('clash-day');
+    if(PH_DATES_2026.has(dISO)){
+      cell.classList.add('ph-day');
+      cell.title=(PH_LABELS_2026[dISO]||'Public Holiday')+
+        ' — higher alert status. Plan leave carefully around this date.';
+    }
+    cell.onclick=()=>{
+      if(dayPaint.get(dISO)===activePaintType){
+        dayPaint.delete(dISO);
+      }else{
+        dayPaint.set(dISO,activePaintType);
+      }
+      renderCal();updateDates();
+    };
+    grid.appendChild(cell);
+  }
+  const total=dayPaint.size;
+  document.getElementById('calCountAll').textContent=total+(total===1?' day selected':' days selected');
+  renderGapWarning();
+  renderClashWarning();
+  renderLeaveSummary();
+}
+function navCal(dir){
+  calView.month+=dir;
+  if(calView.month<0){calView.month=11;calView.year--;}
+  if(calView.month>11){calView.month=0;calView.year++;}
+  renderCal();
+}
+function flashCalWarn(msg){
+  flash('statusA',msg,'warn');
+  setTimeout(()=>{if(document.getElementById('statusA').textContent===msg)
+    document.getElementById('statusA').textContent='';},3500);
+}
+function clearAllCal(){
+  dayPaint.clear();
+  document.getElementById('clashMotivation').value='';
+  document.getElementById('motivationCount').textContent='0 / 500 characters';
+  document.getElementById('clashMotivation').value='';
+  document.getElementById('motivationCount').textContent='0 / 500 characters';
+  renderCal();updateDates();
+}
+
+function renderBalGrid(){
+  const grid=document.getElementById('balGrid');
+  grid.innerHTML='';
+  LEAVE_TYPES.forEach(type=>{
+    const card=document.createElement('div');
+    card.className='bal-card bal-'+type;
+    card.id='balCard_'+type;
+    card.innerHTML='<div class="bt">'+type+'</div><div class="bd" id="balDays_'+type+'">0 days</div>'+
+      '<div class="bv" id="balVal_'+type+'">—</div>';
+    grid.appendChild(card);
+  });
+}
+
+const EMP_EMAIL_MAP={
+  'SEC0018':'minnaar.fullard@bastionsecurity.org',
+  'SEC0113':'derek@bastionsecurity.org',
+  'SEC0112':'pieter.klue@bastionsecurity.org',
+  'SEC0017':'matthys.devilliers@bastionsecurity.org'
+};
+function updateDates(){
+  const all=[...dayPaint.keys()].sort();
+  if(all.length){
+    document.getElementById('startDate').value=prettyISO(all[0]);
+    document.getElementById('endDate').value=prettyISO(all[all.length-1]);
+  }else{
+    document.getElementById('startDate').value='';
+    document.getElementById('endDate').value='';
+  }
+  const total=dayPaint.size;
+  document.getElementById('numDays').value=total? total+(total>1?' days':' day') : '';
+  recalcBalance();
+}
+
+function autofillEmp(){
+  const s=document.getElementById('empName');const o=s.options[s.selectedIndex];
+  document.getElementById('badge').value=o.dataset.badge||'';
+  document.getElementById('section').value=o.dataset.sec||'';
+  const badge=o.dataset.badge||'';
+  const emailField=document.getElementById('appEmail');
+  if(badge&&EMP_EMAIL_MAP[badge])emailField.value=EMP_EMAIL_MAP[badge];
+  recalcBalance();
+  renderClashWarning();
+}
+function balanceColor(v){return (v<5)?'#A41626':(v<15?'#854F0B':'#15803D');}
+function countByType(type){
+  let n=0;for(const v of dayPaint.values())if(v===type)n++;
+  return n;
+}
+function liveBalance(name,type,daysUsed){
+  if(!name||!type||!BALANCES[name]||BALANCES[name][type]===undefined)return null;
+  return BALANCES[name][type]-daysUsed;
+}
+function recalcBalance(){
+  // Live balance per leave type = Database balance MINUS days painted that colour
+  const name=document.getElementById('empName').value;
+  LEAVE_TYPES.forEach(type=>{
+    const n=countByType(type);
+    const daysEl=document.getElementById('balDays_'+type);
+    const valEl=document.getElementById('balVal_'+type);
+    if(!daysEl||!valEl)return;
+    daysEl.textContent=n+(n===1?' day':' days')+' selected';
+    if(name){
+      const v=liveBalance(name,type,n);
+      valEl.textContent=(v!==null? v+'d rem.':'n/a');
+      valEl.style.color=(v!==null? balanceColor(v):'var(--grey)');
+    }else{
+      valEl.textContent='—';valEl.style.color='var(--grey)';
+    }
+  });
+}
+function charCount(el,id){document.getElementById(id).textContent=el.value.length+' / 500';}
+function toggleReject(){
+  const show=document.getElementById('cooDecision').value==='Rejected';
+  document.getElementById('rejectRow').style.display=show?'grid':'none';
+  document.getElementById('rejCountRow').style.display=show?'grid':'none';}
+
+function syncSubmitState(){
+  const agreed=document.getElementById('declAgree').checked;
+  const signed=document.getElementById('appSignName').value.trim().length>1;
+  const hasGaps=findGapDates().length>0;
+  const overrideNeeded=needsMotivation();
+  const motivationOK=!overrideNeeded||
+    document.getElementById('clashMotivation').value.trim().length>=10;
+  const hasName=!!document.getElementById('empName').value;
+  const hasReason=!!document.getElementById('reason').value;
+  const hasDays=dayPaint.size>0;
+  const ok=agreed&&signed&&!hasGaps&&motivationOK&&hasName&&hasReason&&hasDays;
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=!ok;
+  const fb2=document.getElementById('submitFallback');
+  if(fb2) fb2.style.display=ok?'block':'none';
+  if(!hasName)btn.title='Select your name in Section A first';
+  else if(!hasDays)btn.title='Paint at least one leave day on the calendar';
+  else if(!hasReason)btn.title='Select a Reason for Leave in Section B';
+  else if(!agreed)btn.title='Tick the declaration checkbox first';
+  else if(!signed)btn.title='Type your full name in the signature field';
+  else if(hasGaps)btn.title='Fill all gap days in your leave period first';
+  else if(overrideNeeded&&!motivationOK)btn.title='Add your motivation (min 10 characters) before submitting';
+  else btn.title='Ready to submit';
+}
+function syncHodState(){document.getElementById('hodSignBtn').disabled=
+  document.getElementById('hodSignName').value.trim().length<2;}
+function syncCooState(){document.getElementById('cooSignBtn').disabled=
+  document.getElementById('cooSignName').value.trim().length<2;}
+
+function submitApplication(){
+  const name=document.getElementById('empName').value;
+  if(!name){flash('statusA','Select an employee name first.','warn');return;}
+  if(dayPaint.size===0){flash('statusA','Select at least one leave day on the calendar (Section B).','warn');return;}
+  const gaps=findGapDates();
+  if(gaps.length>0){
+    const list=gaps.map(d=>prettyISO(d)).join(', ');
+    flash('statusA','Leave period has open day(s) with no leave type assigned: <b>'+list+
+      '</b>. Paint these days, or split into separate applications.','warn');
+    return;
+  }
+  const reason=document.getElementById('reason').value;
+  if(!reason){flash('statusA','Please select a Reason for Leave in Section B before submitting.','warn');return;}
+  if(needsMotivation()&&document.getElementById('clashMotivation').value.trim().length<10){
+    flash('statusA','A motivation is required (manning clash or leave exceeds '+MAX_DAYS+
+      ' days). Add at least 10 characters in the motivation field.','warn');
+    return;
+  }
+  document.getElementById('appSignDate').textContent=fmtDate();
+  document.getElementById('submitStamp').value=fmtNow();
+  routeContext='submit';
+  // Always show routing modal with explicit choices
+  openModal('Submit to HOD',
+    'Application by <b>'+name+'</b> is ready. Choose how to send to the HOD:');
+}
+function hodSign(){
+  if(!document.getElementById('hodName').value){flash('statusE','Select HOD/Deputy HOD.','warn');return;}
+  if(!document.getElementById('hodDecision').value){flash('statusE','Select a recommendation.','warn');return;}
+  document.getElementById('hodSignDate').textContent=fmtDate();
+  routeContext='hod';
+  openModal('Forward to COO / Director',
+    'Recommendation signed. Select the approving authority, then send by email:');
+  document.getElementById('authorityPicker').style.display='block';
+  selectAuthority('coo',true);
+}
+function cooSign(){
+  if(!document.getElementById('cooName').value){flash('statusF','Select approving authority.','warn');return;}
+  if(!document.getElementById('cooDecision').value){flash('statusF','Select a decision.','warn');return;}
+  document.getElementById('cooSignDate').textContent=fmtDate();
+  routeContext='coo';
+  const appName=document.getElementById('empName').value;
+  openModal('Return to Applicant',
+    'Final decision recorded. Return signed form to applicant <b>'+appName+'</b>. Choose how to send:');
+}
+
+function openModal(title,msg){
+  document.getElementById('routeTitle').textContent=title;
+  document.getElementById('routeMsg').innerHTML=msg;
+  if(routeContext!=='hod') document.getElementById('authorityPicker').style.display='none';
+  document.getElementById('routeModal').classList.add('show');}
+function closeModal(){document.getElementById('routeModal').classList.remove('show');}
+
+function selectAuthority(who, silent){
+  authorityTarget=who;
+  // visual feedback
+  const coo=document.getElementById('pickCOO');
+  const dir=document.getElementById('pickDir');
+  coo.style.borderColor=who==='coo'?'var(--steel)':'var(--line)';
+  coo.style.background=who==='coo'?'var(--steel-light)':'#fff';
+  dir.style.borderColor=who==='dir'?'var(--steel)':'var(--line)';
+  dir.style.background=who==='dir'?'var(--steel-light)':'#fff';
+  if(!silent){
+    document.getElementById('routeMsg').innerHTML=
+      'Authority selected: <b>'+(who==='coo'?'COO — Andre Van Tonder':'Director — Arno Pienaar')+
+      '</b>. Now confirm to send by email:';
+  }
+}
+
+function route(channel){
+  closeModal();
+  const summary=buildSummary();
+  const appName=document.getElementById('empName').value||'Applicant';
+  const ref=document.getElementById('refNo').textContent;
+  const stageLabel=routeContext==='submit'?'SubmittedByApplicant':
+                   routeContext==='hod'?'HODRecommended':'FinalDecision';
+  const fileName='Bastion_Leave_'+appName.replace(/\s+/g,'_')+'_'+ref+'_'+stageLabel+'.html';
+
+  // ── SAVE FILE — open new tab with snapshot, user presses Ctrl+S ───────────
+  const _snap=buildSnapshot();
+  let _fileSaved=false;
+  // Open snapshot in new tab — guaranteed to work in Edge/Chrome local files
+  try{
+    const _win=window.open('','_blank');
+    if(_win){
+      _win.document.open();
+      _win.document.write(_snap);
+      _win.document.close();
+      _win.document.title=fileName;
+      // Show save instruction in the new tab
+      const _inst=_win.document.createElement('div');
+      _inst.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999;'+
+        'background:#15803D;color:#fff;text-align:center;padding:12px;'+
+        'font-family:Arial,sans-serif;font-size:13px;font-weight:700;'+
+        'box-shadow:0 2px 8px rgba(0,0,0,.3)';
+      _inst.innerHTML='&#128190; Press <strong>Ctrl+S</strong> NOW to save this file as &nbsp;'+
+        '<strong>'+fileName+'</strong>&nbsp; to your Downloads folder &mdash; then close this tab';
+      _win.document.body.insertBefore(_inst,_win.document.body.firstChild);
+      _fileSaved=true;
+    }else{_fileSaved=false;}
+  }catch(_e){_fileSaved=false;}
+
+  // ── Step 2: Open Outlook (or print) ───────────────────────────────────────
+  setTimeout(()=>{
+    if(channel==='Email'){
+      // ── Build To / CC / Subject based on workflow stage ───────────────────
+      let to='',cc='';
+      const subj='[BS-LV] Leave Application \u2014 '+appName+' \u2014 '+ref;
+      if(routeContext==='submit'){
+        // If applicant IS the HOD (Minnaar), route to Deputy HOD (Derek) instead
+        const applicantBadge=document.getElementById('badge').value;
+        if(applicantBadge==='SEC0018'){
+          to=HOD_EMAIL_DEREK;   // Deputy HOD acts as recommending authority
+          cc=HOD_EMAIL_MINNAAR; // HOD still CC'd for awareness
+        } else {
+          to=HOD_EMAIL_MINNAAR;
+          cc=HOD_EMAIL_DEREK;
+        }
+      }else if(routeContext==='hod'){
+        to=authorityTarget==='dir'?DIR_EMAIL:COO_EMAIL;
+        cc=HOD_EMAIL_MINNAAR+','+HOD_EMAIL_DEREK;
+      }else if(routeContext==='coo'){
+        const badge=document.getElementById('badge').value;
+        const empEmailMap={
+          'SEC0018':'minnaar.fullard@bastionsecurity.org',
+          'SEC0113':'derek@bastionsecurity.org',
+          'SEC0112':'pieter.klue@bastionsecurity.org',
+          'SEC0017':'matthys.devilliers@bastionsecurity.org'
+        };
+        to=empEmailMap[badge]||document.getElementById('appEmail').value||'';
+        const authEmail=authorityTarget==='dir'?DIR_EMAIL:COO_EMAIL;
+        cc=HOD_EMAIL_MINNAAR+','+HOD_EMAIL_DEREK+','+authEmail+','+CC_ADMIN_1+','+CC_ADMIN_2;
+      }
+
+      // ── Show fallback panel immediately (no mailto — guaranteed to work) ──
+      const fb=document.getElementById('emailFallback');
+      if(fb){
+        document.getElementById('fbTo').textContent=to;
+        document.getElementById('fbCc').textContent=cc||'(none)';
+        document.getElementById('fbSubj').textContent=subj;
+        document.getElementById('fbBody').textContent=summary;
+        document.getElementById('fbFileName').textContent=fileName;
+        fb.style.display='block';
+        setTimeout(()=>fb.scrollIntoView({behavior:'smooth',block:'start'}),200);
+      }
+      // Unlock next section immediately so the same user can see it
+      if(routeContext==='submit') unlockSection('E');
+      if(routeContext==='hod')    unlockSection('F');
+}else if(channel==='Manual'){
+      window.print();
+    }
+
+    // ── Step 3: Advance workflow & show status ────────────────────────────
+    let statusMsg='';
+    if(routeContext==='submit'){
+      statusMsg=channel==='Email'?
+        (_fileSaved?
+          '✓ A new tab opened with your form. <strong>Press Ctrl+S in that tab</strong> to save <b>'+fileName+'</b> then close the tab. Attach that file to your Outlook email.'
+          :'⚠ Pop-up was blocked. Allow pop-ups and try again, OR use the <b>Save My Copy</b> button below.')
+        :(_fileSaved?
+          '✓ A new tab opened — Press <strong>Ctrl+S</strong> in that tab to save the form.'
+          :'⚠ Pop-up blocked — allow pop-ups and retry.');
+      flash('statusA',statusMsg,_fileSaved?'ok':'warn');
+      lockSection('A');unlockSection('E');
+    }else if(routeContext==='hod'){
+      const authName=authorityTarget==='dir'?'Director (Arno Pienaar)':'COO (Andre Van Tonder)';
+      statusMsg=channel==='Email'?
+        (_fileSaved?
+          '✓ New tab opened — Press <strong>Ctrl+S</strong> in that tab to save <b>'+fileName+'</b>. Attach that file to your Outlook email to '+authName+'.'
+          :'⚠ Pop-up blocked — allow pop-ups and retry, or use <b>Save Copy</b> button.')
+        :(_fileSaved?
+          '✓ New tab opened — Press <strong>Ctrl+S</strong> in that tab to save the form.'
+          :'⚠ Pop-up blocked — allow pop-ups and retry.');
+      flash('statusE',statusMsg,_fileSaved?'ok':'warn');
+      lockSection('E');unlockSection('F');
+    }else if(routeContext==='coo'){
+      statusMsg=channel==='Email'?
+        ('✓ Saved <b>'+fileName+'</b> to your Downloads folder. '+
+         'In Outlook, attach that file from Downloads, then press Send to the applicant (HOD on CC).'+linkHtml(channel,manualLink))
+        :(_fileSaved?
+          '✓ New tab opened — Press <strong>Ctrl+S</strong> in that tab to save the form.'
+          :'⚠ Pop-up blocked — allow pop-ups and retry.');
+      flash('statusF',statusMsg,_fileSaved?'ok':'warn');
+      lockSection('F');
+    }
+  },400);
+}
+function linkHtml(channel,url){
+  if(channel==='Manual'||!url)return '';
+  return ' &nbsp;<a href="'+url+'" target="_blank" rel="noopener">If Outlook did not open, tap here ↗</a>';
+}
+
+function buildSummary(){
+  const g=id=>document.getElementById(id)?.value||'—';
+  let s='BASTION SECURITY — LEAVE APPLICATION\n';
+  s+='Ref: '+document.getElementById('refNo').textContent+'\n';
+  s+='─────────────────────────\n';
+  s+='Name: '+g('empName')+'  ('+g('badge')+')\n';
+  s+='Section: '+g('section')+'\n';
+  LEAVE_TYPES.forEach(type=>{
+    const n=countByType(type);
+    if(n>0){
+      const bal=document.getElementById('balVal_'+type)?.textContent||'n/a';
+      s+=LEAVE_LABELS[type]+': '+n+(n===1?' day':' days')+'  (balance: '+bal+')\n';
+    }
+  });
+  s+='From: '+g('startDate')+'   To: '+g('endDate')+'\n';
+  s+='Total days: '+g('numDays')+'\n';
+  s+='Reason: '+g('reason')+'\n';
+  const motivation=document.getElementById('clashMotivation').value.trim();
+  if(motivation){
+    const hasClash=findClashDates().length>0;
+    const hasExcess=dayPaint.size>MAX_DAYS;
+    const reason=hasClash&&hasExcess?'MANNING CLASH + EXTENDED LEAVE':
+                 hasClash?'MANNING CLASH':'EXTENDED LEAVE (>'+MAX_DAYS+' days)';
+    s+='OVERRIDE MOTIVATION ('+reason+'): '+motivation+'\n';
+  }
+  s+='─────────────────────────\n';
+  if(routeContext!=='submit'){
+    const authLabel=authorityTarget==='dir'?'Director — Arno Pienaar':'COO — Andre Van Tonder';
+    s+='HOD: '+g('hodName')+'\nRecommendation: '+g('hodDecision')+'\nForwarded to: '+authLabel+'\nHOD comments: '+g('hodComments')+'\n';
+  }
+  if(routeContext==='coo'){
+    s+='Authority: '+g('cooName')+'\nDECISION: '+g('cooDecision')+'\n';
+    if(g('cooDecision')==='Rejected')s+='Reason: '+g('rejectReason')+'\n';
+  }
+  s+='─────────────────────────\nBastion Security · Form BS-LV-01';
+  return s;
+}
+
+function lockSection(L){
+  if(L==='A'){
+    document.querySelectorAll('#sheet .sec:nth-child(1) input,#sheet .sec:nth-child(1) select').forEach(e=>e.disabled=true);
+    setFlag('flagA','Submitted','active');
+    document.getElementById('submitBtn').disabled=true;
+  }
+  if(L==='E'){
+    document.getElementById('gridE').classList.add('locked');
+    document.getElementById('signE').classList.add('locked');
+    document.getElementById('actionsE').style.opacity='.5';
+    document.getElementById('actionsE').style.pointerEvents='none';
+    setFlag('flagE','Recommended','active');
+  }
+  if(L==='F'){
+    document.getElementById('gridF').classList.add('locked');
+    document.getElementById('signF').classList.add('locked');
+    document.getElementById('actionsF').style.opacity='.5';
+    document.getElementById('actionsF').style.pointerEvents='none';
+    setFlag('flagF','Decided','active');
+  }
+}
+function unlockSection(L){
+  const grid=document.getElementById('grid'+L),sign=document.getElementById('sign'+L),
+    act=document.getElementById('actions'+L);
+  grid.classList.remove('locked');sign.classList.remove('locked');
+  act.style.opacity='1';act.style.pointerEvents='auto';
+  setFlag('flag'+L,'Action required','active');
+}
+function setFlag(id,txt,cls){
+  const el=document.getElementById(id);el.textContent=txt;
+  el.className='stage-flag '+(cls==='active'?'flag-active':'flag-wait');}
+function flash(id,msg,cls){const el=document.getElementById(id);el.innerHTML=msg;el.className='status '+(cls||'');}
+
+function buildSnapshot(){
+  // ── Collect ALL form state into embedded JSON ─────────────────────────────
+  const state={
+    version:2,
+    dayPaint:Object.fromEntries(dayPaint),
+    routeContext:routeContext,
+    fields:{},checks:{},dates:{},texts:{}
+  };
+  document.querySelectorAll('input,select,textarea').forEach(el=>{
+    if(!el.id)return;
+    if(el.type==='checkbox') state.checks[el.id]=el.checked;
+    else state.fields[el.id]=el.value||'';
+  });
+  ['appSignDate','hodSignDate','cooSignDate'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)state.dates[id]=el.textContent;
+  });
+  ['statusA','statusE','statusF','refNo'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el)state.texts[id]=el.textContent;
+  });
+
+  // ── Clone DOM and stamp values ────────────────────────────────────────────
+  const doc=document.documentElement.cloneNode(true);
+  const liveInputs=[...document.querySelectorAll('input,select,textarea')];
+  const cloneInputs=[...doc.querySelectorAll('input,select,textarea')];
+  liveInputs.forEach((el,i)=>{
+    if(!cloneInputs[i])return;
+    if(el.type==='checkbox'){
+      if(el.checked)cloneInputs[i].setAttribute('checked','checked');
+      else cloneInputs[i].removeAttribute('checked');
+    }else{
+      cloneInputs[i].setAttribute('value',el.value||'');
+      if(el.tagName==='TEXTAREA')cloneInputs[i].textContent=el.value||'';
+      if(el.tagName==='SELECT'){
+        [...cloneInputs[i].options].forEach(o=>o.removeAttribute('selected'));
+        const s=cloneInputs[i].options[el.selectedIndex];
+        if(s)s.setAttribute('selected','selected');
+      }
+    }
+  });
+  ['appSignDate','hodSignDate','cooSignDate'].forEach(id=>{
+    const l=document.getElementById(id),c=doc.getElementById(id);
+    if(l&&c)c.textContent=l.textContent;
+  });
+  ['statusA','statusE','statusF'].forEach(id=>{
+    const l=document.getElementById(id),c=doc.getElementById(id);
+    if(l&&c)c.innerHTML=l.innerHTML;
+  });
+
+  // ── Embed full state as JSON script tag ───────────────────────────────────
+  const sc=doc.createElement('script');
+  sc.id='__bastionState'; sc.type='application/json';
+  sc.textContent=JSON.stringify(state);
+  const h=doc.querySelector('head');
+  if(h)h.appendChild(sc);
+
+  // ── Filed stamp ───────────────────────────────────────────────────────────
+  const stamp=doc.createElement('div');
+  stamp.style.cssText='background:#13294B;color:#C8A04B;text-align:center;padding:10px;'+
+    'font-size:11px;font-weight:700;letter-spacing:.1em;font-family:Arial,sans-serif;'+
+    'border-bottom:3px solid #C8A04B';
+  stamp.textContent='BASTION SECURITY — OFFICIAL LEAVE APPLICATION — FILED: '+
+    new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+
+    ' '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+  const b=doc.querySelector('body');
+  if(b)b.insertBefore(stamp,b.firstChild);
+  return '<!DOCTYPE html>'+doc.outerHTML;
+}
+function saveCopy(){
+  const name=(document.getElementById('empName').value||'form').replace(/\s+/g,'_');
+  const ref=document.getElementById('refNo').textContent;
+  const stage=routeContext==='submit'?'Draft':
+               routeContext==='hod'?'HODSigned':'FinalDecision';
+  const fname='Bastion_Leave_'+name+'_'+ref+'_'+stage+'.html';
+  const snapshot=buildSnapshot();
+  // Open snapshot in new tab — press Ctrl+S to save
+  try{
+    const w=window.open('','_blank');
+    if(w){
+      w.document.open();w.document.write(snapshot);w.document.close();
+      w.document.title=fname;
+      const inst=w.document.createElement('div');
+      inst.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99999;'+
+        'background:#15803D;color:#fff;text-align:center;padding:12px;'+
+        'font-family:Arial,sans-serif;font-size:13px;font-weight:700;'+
+        'box-shadow:0 2px 8px rgba(0,0,0,.3)';
+      inst.innerHTML='\u{1F4BE} Press <strong>Ctrl+S</strong> NOW to save as '+
+        '<strong>'+fname+'</strong> \u2014 then close this tab and return here';
+      w.document.body.insertBefore(inst,w.document.body.firstChild);
+      showSaveConfirm(fname);
+    }else{throw new Error('popup blocked');}
+  }catch(e){
+    const box=document.getElementById('saveCopyStatus');
+    if(box){
+      box.innerHTML='\u26a0 Pop-up was blocked \u2014 allow pop-ups for this page, '+
+        'then click Save My Copy again. Or use <strong>Print A4</strong> to save a PDF.';
+      box.style.background='#FEE2E2';box.style.color='#991B1B';
+      box.style.display='block';
+    }
+  }
+}
+
+function showSaveConfirm(fname){
+  const box=document.getElementById('saveCopyStatus');
+  if(box){
+    box.innerHTML='\u2713 Saved: <strong>'+fname+'</strong> — check your Downloads folder. Attach this file to your Outlook email.';
+    box.style.background='#DCFCE7';box.style.color='#15803D';
+    box.style.display='block';
+    setTimeout(()=>box.style.display='none',8000);
+  }
+}
+function resetForm(){
+  if(!confirm('Clear the entire form? Save your copy first if needed.'))return;
+  document.querySelectorAll('input,select,textarea').forEach(e=>{
+    if(e.type==='checkbox')e.checked=false;else if(e.type!=='button')e.value='';e.disabled=false;});
+  dayPaint.clear();
+  calView.year=today.getFullYear();calView.month=today.getMonth();
+  selectPaintType('DO');
+  renderCal();renderBalGrid();updateDates();
+  ['appSignDate','hodSignDate','cooSignDate'].forEach(id=>document.getElementById(id).textContent='—');
+  ['statusA','statusE','statusF'].forEach(id=>{const el=document.getElementById(id);el.innerHTML='';el.className='status';});
+  ['gridE','signE','gridF','signF'].forEach(id=>document.getElementById(id).classList.add('locked'));
+  document.getElementById('actionsE').style.opacity='.5';document.getElementById('actionsE').style.pointerEvents='none';
+  document.getElementById('actionsF').style.opacity='.5';document.getElementById('actionsF').style.pointerEvents='none';
+  setFlag('flagA','Open','active');setFlag('flagE','Awaiting submit','wait');setFlag('flagF','Awaiting HOD','wait');
+  document.getElementById('appDate').value=today.toISOString().slice(0,10);
+  document.getElementById('refNo').textContent='BS-LV-'+today.getFullYear()+'-'+String(Math.floor(Math.random()*9000)+1000);
+  window.scrollTo(0,0);
+}
+</script>
+
+
+</body></html>

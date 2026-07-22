@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0081)file:///C:/Users/Derick%20Skolnic/Downloads/Bastion_Leave_Application_Form_7.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bastion Security — Leave Application Form</title>
 <style>
@@ -268,7 +268,7 @@
   </div>
   <div class="title-strip">Official Leave Application</div>
   <div class="ref-strip">
-    <span>Application Ref: <strong id="refNo">—</strong></span>
+    <span>Application Ref: <strong id="refNo">BS-LV-2026-7248</strong></span>
     <span>Contract: GOV 2026–2029</span>
   </div>
   <div class="body">
@@ -288,9 +288,9 @@
               <option data-badge="SEC0017" data-sec="QRF/Trg">Matthys De Villiers</option>
             </select></div></div>
         <div class="frow"><div class="flabel">Badge Number</div>
-          <div class="finput"><input type="text" id="badge" readonly placeholder="Auto-filled"></div></div>
+          <div class="finput"><input type="text" id="badge" readonly="" placeholder="Auto-filled"></div></div>
         <div class="frow"><div class="flabel">Section / Post</div>
-          <div class="finput"><input type="text" id="section" readonly placeholder="Auto-filled"></div></div>
+          <div class="finput"><input type="text" id="section" readonly="" placeholder="Auto-filled"></div></div>
         <div class="frow"><div class="flabel">Date of Application</div>
           <div class="finput"><input type="date" id="appDate"></div></div>
       </div>
@@ -304,10 +304,10 @@
           <div class="flabel">Select Leave Type<br><span style="font-weight:400;font-size:10px;color:var(--grey)">Then tap days below</span></div>
           <div class="finput">
             <div class="type-swatch-row" id="typeSwatches">
-              <button type="button" class="swatch sw-DO active" data-type="DO" onclick="selectPaintType('DO')">DO<span>Days Off</span></button>
-              <button type="button" class="swatch sw-L" data-type="L" onclick="selectPaintType('L')">L<span>Annual Leave</span></button>
-              <button type="button" class="swatch sw-SL" data-type="SL" onclick="selectPaintType('SL')">SL<span>Sick Leave</span></button>
-              <button type="button" class="swatch sw-CL" data-type="CL" onclick="selectPaintType('CL')">CL<span>Compassionate</span></button>
+              <button type="button" class="swatch sw-DO active" data-type="DO" onclick="selectPaintType(&#39;DO&#39;)">DO<span>Days Off</span></button>
+              <button type="button" class="swatch sw-L" data-type="L" onclick="selectPaintType(&#39;L&#39;)">L<span>Annual Leave</span></button>
+              <button type="button" class="swatch sw-SL" data-type="SL" onclick="selectPaintType(&#39;SL&#39;)">SL<span>Sick Leave</span></button>
+              <button type="button" class="swatch sw-CL" data-type="CL" onclick="selectPaintType(&#39;CL&#39;)">CL<span>Compassionate</span></button>
             </div>
           </div>
         </div>
@@ -317,21 +317,21 @@
             <div class="cal-block" style="width:100%">
               <div class="cal-nav">
                 <button type="button" onclick="navCal(-1)">‹</button>
-                <span class="mlabel" id="calLabel"></span>
+                <span class="mlabel" id="calLabel">July 2026</span>
                 <button type="button" onclick="navCal(1)">›</button>
               </div>
-              <div class="cal-grid" id="calGrid"></div>
+              <div class="cal-grid" id="calGrid"><div class="cal-dow">Mo</div><div class="cal-dow">Tu</div><div class="cal-dow">We</div><div class="cal-dow">Th</div><div class="cal-dow">Fr</div><div class="cal-dow">Sa</div><div class="cal-dow">Su</div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day today ph-day" title="King Sobhuza Birthday — higher alert status. Plan leave carefully around this date.">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div><div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div><div class="cal-day">31</div></div>
               <div class="cal-foot">
                 <span class="cal-count" id="calCountAll">0 days selected</span>
                 <button type="button" onclick="clearAllCal()">Clear all</button>
               </div>
               <div class="ph-legend">
                 <span class="ph-legend-dot"></span>
-                <span>&#9733; National Public Holiday — higher security alert status. Plan leave with full manning where possible.</span>
+                <span>★ National Public Holiday — higher security alert status. Plan leave with full manning where possible.</span>
               </div>
               <!-- Leave Period Summary Panel -->
-              <div class="leave-summary" id="leaveSummary">
-                <h4>&#128197; Leave Period Summary</h4>
+              <div class="leave-summary" id="leaveSummary" style="display: none;">
+                <h4>📅 Leave Period Summary</h4>
                 <div id="leaveSummaryRows"></div>
                 <hr class="ls-divider">
                 <div class="leave-summary-row">
@@ -340,15 +340,13 @@
                 </div>
               </div>
               <div id="gapWarning" class="gap-warning" style="display:none"></div>
-              <div id="clashWarning" class="clash-warning"></div>
-              <div id="excessWarning" class="excess-warning"></div>
-              <div class="motivation-wrap" id="motivationWrap">
+              <div id="clashWarning" class="clash-warning" style="display: none;"></div>
+              <div id="excessWarning" class="excess-warning" style="display: none;"></div>
+              <div class="motivation-wrap" id="motivationWrap" style="display: none;">
                 <div class="motivation-hdr">
                   ⚠ Override required — <span id="motivationHdrReason">mandatory motivation</span>
                 </div>
-                <textarea id="clashMotivation" maxlength="500"
-                  placeholder="State the operational reason for this leave overlap. The HOD and COO/Director will review this motivation alongside your application."
-                  oninput="onMotivationInput()"></textarea>
+                <textarea id="clashMotivation" maxlength="500" placeholder="State the operational reason for this leave overlap. The HOD and COO/Director will review this motivation alongside your application." oninput="onMotivationInput()"></textarea>
                 <div class="motivation-count" id="motivationCount">0 / 500 characters</div>
               </div>
             </div>
@@ -356,11 +354,11 @@
         </div>
         <div class="frow"><div class="flabel">Days Applied &amp; Live Balance</div>
           <div class="finput">
-            <div class="bal-grid" id="balGrid"></div>
+            <div class="bal-grid" id="balGrid"><div class="bal-card bal-DO" id="balCard_DO"><div class="bt">DO</div><div class="bd" id="balDays_DO">0 days</div><div class="bv" id="balVal_DO">—</div></div><div class="bal-card bal-L" id="balCard_L"><div class="bt">L</div><div class="bd" id="balDays_L">0 days</div><div class="bv" id="balVal_L">—</div></div><div class="bal-card bal-SL" id="balCard_SL"><div class="bt">SL</div><div class="bd" id="balDays_SL">0 days</div><div class="bv" id="balVal_SL">—</div></div><div class="bal-card bal-CL" id="balCard_CL"><div class="bt">CL</div><div class="bd" id="balDays_CL">0 days</div><div class="bv" id="balVal_CL">—</div></div></div>
           </div></div>
         <input type="hidden" id="startDate"><input type="hidden" id="endDate"><input type="hidden" id="numDays">
         <div class="frow"><div class="flabel">Reason for Leave <span style="color:#DC2626;font-size:10px;font-weight:700">★ required</span></div>
-          <div class="finput"><select class="btn3d" id="reason" onchange="syncSubmitState();this.style.borderColor=this.value?'':'#DC2626';" style="border:2px solid #DC2626">
+          <div class="finput"><select class="btn3d" id="reason" onchange="syncSubmitState();this.style.borderColor=this.value?&#39;&#39;:&#39;#DC2626&#39;;" style="border:2px solid #DC2626">
             <option value="">— Select reason —</option>
             <option value="Planned Leave">Planned Leave</option>
             <option value="Emergency Leave">Emergency Leave</option>
@@ -376,8 +374,8 @@
 
     <!-- SECTION C (hidden — Notice Rule moved into Section B; routing is email-only) -->
     <div class="sec" style="display:none">
-      <input type="text" id="submitStamp" readonly value="">
-      <select id="submitVia"><option value="Email" selected>Email</option></select>
+      <input type="text" id="submitStamp" readonly="" value="">
+      <select id="submitVia"><option value="Email" selected="">Email</option></select>
       <input type="email" id="appEmail" value="">
     </div>
 
@@ -398,7 +396,7 @@
         <div class="sign-date"><span class="cap">Date signed</span><span class="d" id="appSignDate">—</span></div>
       </div>
       <div class="actions no-print">
-        <button class="btn btn-submit" id="submitBtn" onclick="submitApplication()" disabled>▶ Submit Application</button>
+        <button class="btn btn-submit" id="submitBtn" onclick="submitApplication()" disabled="" title="Select your name in Section A first">▶ Submit Application</button>
         <button class="btn btn-ghost" onclick="saveCopy()">⤓ Save My Copy</button>
         <button class="btn btn-ghost" onclick="window.print()">⎙ Print A4</button>
         <button class="btn btn-ghost" onclick="resetForm()">↺ Clear Form</button>
@@ -407,40 +405,39 @@
       <div id="submitFallback" style="display:none;margin:10px 0;padding:10px;
            background:#FEF3C7;border:1px solid #D97706;border-radius:6px;font-size:11px;color:#78350F">
         <strong>Submit button not responding?</strong> 
-        <a href="#" onclick="submitApplication();return false;" 
-           style="color:#13294B;font-weight:700;text-decoration:underline">
+        <a href="file:///C:/Users/Derick%20Skolnic/Downloads/Bastion_Leave_Application_Form_7.html#" onclick="submitApplication();return false;" style="color:#13294B;font-weight:700;text-decoration:underline">
            Click here to submit your application</a>
       </div>
       <!-- ── Email Fallback Panel ─────────────────────────────────────────── -->
       <div id="emailFallback">
-        <h3>📧 Open Outlook &rarr; New Email &rarr; copy the fields below</h3>
+        <h3>📧 Open Outlook → New Email → copy the fields below</h3>
         <div class="fb-note">
           <b>3 steps:</b><br>
-          1. Open <b>Outlook</b> &rarr; click <b>New Email</b><br>
+          1. Open <b>Outlook</b> → click <b>New Email</b><br>
           2. Copy each field below into the matching Outlook field<br>
           3. Attach the file saved to your Downloads folder:
           &nbsp;<b><span id="fbFileName" style="color:#13294B;background:#FEF3C7;padding:1px 6px;border-radius:3px;font-size:10px"></span></b>
         </div>
         <div class="fb-field">
-          <div class="fb-label">&#128231; To — click To: in Outlook and paste this</div>
+          <div class="fb-label">📧 To — click To: in Outlook and paste this</div>
           <div class="fb-val" id="fbTo"></div>
-          <button class="fb-copy" style="margin-top:4px;padding:4px 12px;font-size:10px" onclick="copyField('fbTo',this)">&#128203; Copy</button>
+          <button class="fb-copy" style="margin-top:4px;padding:4px 12px;font-size:10px" onclick="copyField(&#39;fbTo&#39;,this)">📋 Copy</button>
         </div>
         <div class="fb-field">
-          <div class="fb-label">&#128101; CC — click CC: in Outlook and paste this</div>
+          <div class="fb-label">👥 CC — click CC: in Outlook and paste this</div>
           <div class="fb-val" id="fbCc"></div>
-          <button class="fb-copy" style="margin-top:4px;padding:4px 12px;font-size:10px" onclick="copyField('fbCc',this)">&#128203; Copy</button>
+          <button class="fb-copy" style="margin-top:4px;padding:4px 12px;font-size:10px" onclick="copyField(&#39;fbCc&#39;,this)">📋 Copy</button>
         </div>
         <div class="fb-field">
-          <div class="fb-label">&#128196; Subject — paste into the Subject line</div>
+          <div class="fb-label">📄 Subject — paste into the Subject line</div>
           <div class="fb-val" id="fbSubj"></div>
-          <button class="fb-copy" style="margin-top:4px;padding:4px 12px;font-size:10px" onclick="copyField('fbSubj',this)">&#128203; Copy</button>
+          <button class="fb-copy" style="margin-top:4px;padding:4px 12px;font-size:10px" onclick="copyField(&#39;fbSubj&#39;,this)">📋 Copy</button>
         </div>
         <div class="fb-field">
-          <div class="fb-label">&#128221; Email Body — paste into the Outlook email body</div>
+          <div class="fb-label">📝 Email Body — paste into the Outlook email body</div>
           <div class="fb-body" id="fbBody"></div>
         </div>
-        <button class="fb-copy" style="width:100%;padding:10px;font-size:12px;margin-top:8px" onclick="copyField('fbBody',this)">&#128203; Copy Full Email Body to Clipboard</button>
+        <button class="fb-copy" style="width:100%;padding:10px;font-size:12px;margin-top:8px" onclick="copyField(&#39;fbBody&#39;,this)">📋 Copy Full Email Body to Clipboard</button>
       </div>
       </div>
       <div class="status" id="statusA"></div>
@@ -464,8 +461,7 @@
             <option value="Not Recommended">Not Recommended</option>
           </select></div></div>
         <div class="frow"><div class="flabel">Comments</div>
-          <div class="finput"><textarea id="hodComments" rows="2" maxlength="500" placeholder="Up to 500 characters"
-            oninput="charCount(this,'hodCount')"></textarea></div></div>
+          <div class="finput"><textarea id="hodComments" rows="2" maxlength="500" placeholder="Up to 500 characters" oninput="charCount(this,&#39;hodCount&#39;)"></textarea></div></div>
         <div class="frow"><div class="flabel" style="font-size:11px">Characters</div>
           <div class="finput"><span class="hint" id="hodCount">0 / 500</span></div></div>
       </div>
@@ -476,7 +472,7 @@
         <div class="sign-date"><span class="cap">Date signed</span><span class="d" id="hodSignDate">—</span></div>
       </div>
       <div class="actions no-print" id="actionsE" style="opacity:.5;pointer-events:none">
-        <button class="btn btn-sign" id="hodSignBtn" onclick="hodSign()" disabled>▶ Sign &amp; Forward to COO/Director</button>
+        <button class="btn btn-sign" id="hodSignBtn" onclick="hodSign()" disabled="">▶ Sign &amp; Forward to COO/Director</button>
         <button class="btn btn-ghost" onclick="saveCopy()">⤓ Save Copy</button>
       </div>
       <div class="status" id="statusE"></div>
@@ -501,8 +497,7 @@
             <option value="Rejected">Rejected</option>
           </select></div></div>
         <div class="frow" id="rejectRow" style="display:none"><div class="flabel">If Rejected — Reason</div>
-          <div class="finput"><textarea id="rejectReason" rows="2" maxlength="500" placeholder="Up to 500 characters"
-            oninput="charCount(this,'rejCount')"></textarea></div></div>
+          <div class="finput"><textarea id="rejectReason" rows="2" maxlength="500" placeholder="Up to 500 characters" oninput="charCount(this,&#39;rejCount&#39;)"></textarea></div></div>
         <div class="frow" id="rejCountRow" style="display:none"><div class="flabel" style="font-size:11px">Characters</div>
           <div class="finput"><span class="hint" id="rejCount">0 / 500</span></div></div>
       </div>
@@ -513,7 +508,7 @@
         <div class="sign-date"><span class="cap">Date signed</span><span class="d" id="cooSignDate">—</span></div>
       </div>
       <div class="actions no-print" id="actionsF" style="opacity:.5;pointer-events:none">
-        <button class="btn btn-sign" id="cooSignBtn" onclick="cooSign()" disabled>▶ Sign &amp; Return to Applicant</button>
+        <button class="btn btn-sign" id="cooSignBtn" onclick="cooSign()" disabled="">▶ Sign &amp; Return to Applicant</button>
         <button class="btn btn-ghost" onclick="saveCopy()">⤓ Save Copy</button>
       </div>
       <div class="status" id="statusF"></div>
@@ -521,7 +516,7 @@
 
   </div>
   <div class="foot">Bastion Security · Daily Accountability &amp; Leave Planner · Form BS-LV-01 · 2026</div>
-</div>
+
 
 <!-- Routing modal -->
 <div class="modal-bg" id="routeModal">
@@ -539,12 +534,12 @@
         <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
           color:var(--navy);margin-bottom:8px">Forward to which authority?</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-          <div class="route" onclick="selectAuthority('coo')" id="pickCOO">
+          <div class="route" onclick="selectAuthority(&#39;coo&#39;)" id="pickCOO">
             <span class="ic">👔</span>
             <span class="nm">COO</span>
             <span class="ds">Andre Van Tonder<br>andre@bastionsecurity.org</span>
           </div>
-          <div class="route" onclick="selectAuthority('dir')" id="pickDir">
+          <div class="route" onclick="selectAuthority(&#39;dir&#39;)" id="pickDir">
             <span class="ic">⭐</span>
             <span class="nm">Director</span>
             <span class="ds">Arno Pienaar<br>arno@bastionsecurity.org</span>
@@ -552,8 +547,8 @@
         </div>
       </div>
       <div class="route-grid" style="grid-template-columns:1fr 1fr">
-        <div class="route" onclick="route('Email')"><span class="ic">✉️</span><span class="nm">Outlook Email</span><span class="ds">@bastionsecurity.org</span></div>
-        <div class="route" onclick="route('Manual')"><span class="ic">⎙</span><span class="nm">Manual Print</span><span class="ds">A4 hard copy</span></div>
+        <div class="route" onclick="route(&#39;Email&#39;)"><span class="ic">✉️</span><span class="nm">Outlook Email</span><span class="ds">@bastionsecurity.org</span></div>
+        <div class="route" onclick="route(&#39;Manual&#39;)"><span class="ic">⎙</span><span class="nm">Manual Print</span><span class="ds">A4 hard copy</span></div>
       </div>
       <button class="close" onclick="closeModal()">Cancel</button>
     </div>
@@ -1453,5 +1448,6 @@ function resetForm(){
   window.scrollTo(0,0);
 }
 </script>
-</body>
-</html>
+
+
+</body></html>

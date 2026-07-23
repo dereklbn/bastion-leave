@@ -530,8 +530,8 @@
     <div class="mbody">
       <div style="background:#FEF3C7;border:1px solid #D97706;border-radius:6px;
         padding:9px 12px;font-size:11.5px;color:#854F0B;margin-bottom:10px;line-height:1.5">
-        <b>📎 Before you send:</b> Clicking a button below will automatically
-        download the signed form to your <b>Downloads</b> folder.
+        <b>📎 Before you send:</b> Clicking a button below will
+        automatically download the signed form to your <b>Downloads</b> folder.
         Attach that file to your Outlook email before pressing Send.
       </div>
       <p id="routeMsg">Application by <b>Derek Skolnic</b> is ready. Choose how to send to the HOD:</p>
@@ -1129,12 +1129,15 @@ function selectAuthority(who, silent){
 }
 
 function route(channel){
-  // ── SAVE FILE first — synchronously within user gesture (Chrome requires this) ─
+  closeModal();
+  const summary=buildSummary();
   const appName=document.getElementById('empName').value||'Applicant';
   const ref=document.getElementById('refNo').textContent;
   const stageLabel=routeContext==='submit'?'SubmittedByApplicant':
                    routeContext==='hod'?'HODRecommended':'FinalDecision';
   const fileName='Bastion_Leave_'+appName.replace(/\s+/g,'_')+'_'+ref+'_'+stageLabel+'.html';
+
+  // ── SAVE FILE — Blob download, synchronous within user gesture ──────────────
   const _snap=buildSnapshot();
   let _fileSaved=false;
   try{
@@ -1146,8 +1149,6 @@ function route(channel){
     setTimeout(()=>{URL.revokeObjectURL(_url);document.body.removeChild(_a);},2000);
     _fileSaved=true;
   }catch(_e){_fileSaved=false;}
-  closeModal();
-  const summary=buildSummary();
 
   // ── Step 2: Open Outlook (or print) ───────────────────────────────────────
   setTimeout(()=>{
@@ -1205,10 +1206,10 @@ function route(channel){
       statusMsg=channel==='Email'?
         (_fileSaved?
           '✓ <b>'+fileName+'</b> downloaded to your Downloads folder. Attach it to your Outlook email to the HOD.'
-          :'⚠ Download failed — use the <b>Save My Copy</b> button below instead.')
+          :'⚠ Download failed — use the <b>Save My Copy</b> button below.')
         :(_fileSaved?
           '✓ <b>'+fileName+'</b> downloaded. Print and file as hard copy.'
-          :'⚠ Download failed — try again or use Save My Copy.');
+          :'⚠ Download failed — try again.');
       flash('statusA',statusMsg,_fileSaved?'ok':'warn');
       lockSection('A');unlockSection('E');
     }else if(routeContext==='hod'){
@@ -1216,20 +1217,19 @@ function route(channel){
       statusMsg=channel==='Email'?
         (_fileSaved?
           '✓ <b>'+fileName+'</b> downloaded. Attach it to your Outlook email to '+authName+'.'
-          :'⚠ Download failed — use <b>Save Copy</b> button instead.')
+          :'⚠ Download failed — use the <b>Save Copy</b> button.')
         :(_fileSaved?
-          '✓ <b>'+fileName+'</b> downloaded. Print and file as hard copy.'
+          '✓ <b>'+fileName+'</b> downloaded. Print and file.'
           :'⚠ Download failed — try again.');
       flash('statusE',statusMsg,_fileSaved?'ok':'warn');
       lockSection('E');unlockSection('F');
     }else if(routeContext==='coo'){
       statusMsg=channel==='Email'?
-        (_fileSaved?
-          '✓ <b>'+fileName+'</b> downloaded to your Downloads folder. Attach it to your Outlook email to return the decision to the applicant (HOD on CC).'
-          :'⚠ Download failed — use <b>Save Copy</b> button instead.')
+        ('✓ Saved <b>'+fileName+'</b> to your Downloads folder. '+
+         'In Outlook, attach that file from Downloads, then press Send to the applicant (HOD on CC).')
         :(_fileSaved?
-          '✓ <b>'+fileName+'</b> downloaded. Print and file.'
-          :'⚠ Download failed — try again.');
+          '✓ New tab opened — Press <strong>Ctrl+S</strong> in that tab to save the form.'
+          :'⚠ Pop-up blocked — allow pop-ups and retry.');
       flash('statusF',statusMsg,_fileSaved?'ok':'warn');
       lockSection('F');
     }
@@ -1398,7 +1398,7 @@ function saveCopy(){
   }catch(e){
     const box=document.getElementById('saveCopyStatus');
     if(box){
-      box.innerHTML='\u26a0 Download failed \u2014 try a different browser or use <strong>Print A4</strong>.';
+      box.innerHTML='\u26a0 Download failed. Please use Print A4 to save a PDF copy.';
       box.style.background='#FEE2E2';box.style.color='#991B1B';
       box.style.display='block';
     }

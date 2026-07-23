@@ -415,7 +415,7 @@
       </div>
       <!-- ── Email Fallback Panel ─────────────────────────────────────────── -->
       <div id="emailFallback">
-        <h3>Open Outlook → New Email → copy the fields below</h3>
+        <h3>📧 Open Outlook → New Email → copy the fields below</h3>
         <div class="fb-note">
           <b>3 steps:</b><br>
           1. Open <b>Outlook</b> → click <b>New Email</b><br>
@@ -424,7 +424,7 @@
           &nbsp;<b><span id="fbFileName" style="color:#13294B;background:#FEF3C7;padding:1px 6px;border-radius:3px;font-size:10px"></span></b>
         </div>
         <div class="fb-field">
-          <div class="fb-label">To — click To: in Outlook and paste this</div>
+          <div class="fb-label">📧 To — click To: in Outlook and paste this</div>
           <div class="fb-val" id="fbTo"></div>
           <button class="fb-copy" style="margin-top:4px;padding:4px 12px;font-size:10px" onclick="copyField(&#39;fbTo&#39;,this)">📋 Copy</button>
         </div>
@@ -604,16 +604,16 @@ const PH_LABELS_2026={
   '2026-04-20':'King\u2019s Birthday',
   '2026-04-21':'HMK Birthday Day Off',
   '2026-04-25':'National Flag Day',
-  '2026-05-01':'Workers Day',
+  '2026-05-01':'Worker's Day',
   '2026-05-14':'Ascension Day',
   '2026-07-22':'King Sobhuza Birthday',
   '2026-09-01':'Umhlanga Day',
-  '2026-09-06':"Somhlolo Day (Independence)",
-  '2026-09-08':"Day Off for Somhlolo",
+  '2026-09-06':'Somhlolo Day (Independence)',
+  '2026-09-08':'Day Off for Somhlolo',
   '2026-12-18':'Incwala Day',
   '2026-12-25':'Christmas Day',
   '2026-12-26':'Boxing Day',
-  '2026-12-29':"Day Off for Incwala"
+  '2026-12-29':'Day Off for Incwala'
 };
 
 const HOD_EMAIL_MINNAAR="minnaar.fullard@bastionsecurity.org";
@@ -634,7 +634,7 @@ const LEAVE_LABELS={DO:'DO - Days Off',L:'L - Annual Leave',SL:'SL - Sick Leave'
 const dayPaint=new Map();
 let activePaintType='DO';
 
-// -- State restoration - runs when HOD/Director opens saved file --------------
+// ?? State restoration - runs when HOD/Director opens saved file ??????????????
 function restoreSnapshot(){
   const sc=document.getElementById('__bastionState');
   if(!sc)return false;
@@ -659,9 +659,9 @@ function restoreSnapshot(){
       const el=document.getElementById(id);if(el)el.textContent=txt;
     });
     // Unlock sections based on workflow stage
-    // routeContext='submit' means HOD needs to act -> unlock E
-    // routeContext='hod' means Director/COO needs to act -> unlock E+F
-    // routeContext='coo' means returning to applicant -> E+F readable
+    // routeContext='submit' means HOD needs to act ? unlock E
+    // routeContext='hod' means Director/COO needs to act ? unlock E+F
+    // routeContext='coo' means returning to applicant ? E+F readable
     if(st.routeContext==='submit'||st.routeContext==='hod'||st.routeContext==='coo'){
       unlockSection('E');
     }
@@ -693,7 +693,7 @@ addEventListener('load',()=>{
 function iso(y,m,d){return y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');}
 function fmtNow(){const d=new Date();
   return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+
-    ' . '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});}
+    ' ? '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});}
 function fmtDate(){return new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});}
 function prettyISO(s){const d=new Date(s+'T00:00:00');
   return d.toLocaleDateString('en-GB',{weekday:'short',day:'2-digit',month:'short',year:'numeric'});}
@@ -1130,63 +1130,121 @@ function selectAuthority(who, silent){
 
 function route(channel){
   closeModal();
+  const summary=buildSummary();
   const appName=document.getElementById('empName').value||'Applicant';
   const ref=document.getElementById('refNo').textContent;
-  const stageLabel=routeContext==='submit'?'hod':routeContext==='hod'?'coo':'final';
-  const stateLink=buildStateLink(stageLabel);
-  if(!stateLink){alert('Could not generate link. Please try again.');return;}
-  let to='',cc='';
-  const subj='[BS-LV] Leave Application - '+appName+' - '+ref;
-  const HOD1='minnaar.fullard@bastionsecurity.org';
-  const HOD2='derek@bastionsecurity.org';
-  const DIR='arno.pienaar@bastionsecurity.org';
-  const COO='andre.vantonder@bastionsecurity.org';
-  const badge=document.getElementById('badge')?document.getElementById('badge').value:'';
-  if(routeContext==='submit'){
-    to=badge==='SEC0018'?HOD2:HOD1;
-    cc=badge==='SEC0018'?HOD1:HOD2;
-  }else if(routeContext==='hod'){
-    to=authorityTarget==='dir'?DIR:COO;
-    cc=HOD1+','+HOD2;
-  }else if(routeContext==='coo'){
-    const empMap={'SEC0018':HOD1,'SEC0113':HOD2,'SEC0112':'pieter.klue@bastionsecurity.org','SEC0017':'matthys.devilliers@bastionsecurity.org'};
-    to=empMap[badge]||HOD2;
-    cc=HOD1+','+HOD2+','+(authorityTarget==='dir'?DIR:COO);
-  }
-  const stageNames={submit:'HOD Recommendation required',hod:'COO/Director Approval required',coo:'Final Decision - Return to Applicant'};
-  const body='Please action the leave application below.'+
-    '\n\nAPPLICANT: '+appName+
-    '\nREF: '+ref+
-    '\nACTION REQUIRED: '+stageNames[routeContext]+
-    '\n\nCLICK LINK BELOW TO OPEN FORM (pre-filled at your stage):'+
-    '\n<'+stateLink+'>'+
-    '\n\nIf the link does not open, copy the full link and paste into your browser address bar.'+
-    '\n\nBastion Security Leave Management System | GOV Contract 2026-2029';
-  console.log('STATE LINK:',stateLink);
-  showRoutePanel(to,cc,subj,body,stateLink,stageLabel);
-  if(routeContext==='submit'){
-    flash('statusA','Application submitted. Copy the link below and email it to the HOD.','ok');
-    lockSection('A');unlockSection('E');
-  }else if(routeContext==='hod'){
-    const authName=authorityTarget==='dir'?'Director (Arno Pienaar)':'COO (Andre Van Tonder)';
-    flash('statusE','HOD recommendation recorded. Send the link below to '+authName+'.','ok');
-    lockSection('E');unlockSection('F');
-  }else if(routeContext==='coo'){
-    flash('statusF','Final decision recorded. Send the link below to the applicant.','ok');
-    lockSection('F');
-  }
-}
+  const stageLabel=routeContext==='submit'?'SubmittedByApplicant':
+                   routeContext==='hod'?'HODRecommended':'FinalDecision';
+  const fileName='Bastion_Leave_'+appName.replace(/\s+/g,'_')+'_'+ref+'_'+stageLabel+'.html';
 
+  // ?? SAVE FILE - Blob download, synchronous within user gesture ??????????????
+  const _snap=buildSnapshot();
+  let _fileSaved=false;
+  try{
+    const _blob=new Blob([_snap],{type:'text/html'});
+    const _url=URL.createObjectURL(_blob);
+    const _a=document.createElement('a');
+    _a.href=_url;_a.download=fileName;
+    document.body.appendChild(_a);_a.click();
+    setTimeout(()=>{URL.revokeObjectURL(_url);document.body.removeChild(_a);},2000);
+    _fileSaved=true;
+  }catch(_e){_fileSaved=false;}
+
+  // ?? Step 2: Open Outlook (or print) ???????????????????????????????????????
+  setTimeout(()=>{
+    if(channel==='Email'){
+      // ?? Build To / CC / Subject based on workflow stage ???????????????????
+      let to='',cc='';
+      const subj='[BS-LV] Leave Application \u2014 '+appName+' \u2014 '+ref;
+      if(routeContext==='submit'){
+        // If applicant IS the HOD (Minnaar), route to Deputy HOD (Derek) instead
+        const applicantBadge=document.getElementById('badge').value;
+        if(applicantBadge==='SEC0018'){
+          to=HOD_EMAIL_DEREK;   // Deputy HOD acts as recommending authority
+          cc=HOD_EMAIL_MINNAAR; // HOD still CC'd for awareness
+        } else {
+          to=HOD_EMAIL_MINNAAR;
+          cc=HOD_EMAIL_DEREK;
+        }
+      }else if(routeContext==='hod'){
+        to=authorityTarget==='dir'?DIR_EMAIL:COO_EMAIL;
+        cc=HOD_EMAIL_MINNAAR+','+HOD_EMAIL_DEREK;
+      }else if(routeContext==='coo'){
+        const badge=document.getElementById('badge').value;
+        const empEmailMap={
+          'SEC0018':'minnaar.fullard@bastionsecurity.org',
+          'SEC0113':'derek@bastionsecurity.org',
+          'SEC0112':'pieter.klue@bastionsecurity.org',
+          'SEC0017':'matthys.devilliers@bastionsecurity.org'
+        };
+        to=empEmailMap[badge]||document.getElementById('appEmail').value||'';
+        const authEmail=authorityTarget==='dir'?DIR_EMAIL:COO_EMAIL;
+        cc=HOD_EMAIL_MINNAAR+','+HOD_EMAIL_DEREK+','+authEmail+','+CC_ADMIN_1+','+CC_ADMIN_2;
+      }
+
+      // ?? Show fallback panel immediately (no mailto - guaranteed to work) ??
+      const fb=document.getElementById('emailFallback');
+      if(fb){
+        document.getElementById('fbTo').textContent=to;
+        document.getElementById('fbCc').textContent=cc||'(none)';
+        document.getElementById('fbSubj').textContent=subj;
+        document.getElementById('fbBody').textContent=summary;
+        document.getElementById('fbFileName').textContent=fileName;
+        fb.style.display='block';
+        setTimeout(()=>fb.scrollIntoView({behavior:'smooth',block:'start'}),200);
+      }
+      // Unlock next section immediately so the same user can see it
+      if(routeContext==='submit') unlockSection('E');
+      if(routeContext==='hod')    unlockSection('F');
+}else if(channel==='Manual'){
+      window.print();
+    }
+
+    // ?? Step 3: Advance workflow & show status ????????????????????????????
+    let statusMsg='';
+    if(routeContext==='submit'){
+      statusMsg=channel==='Email'?
+        (_fileSaved?
+          'OK <b>'+fileName+'</b> downloaded to your Downloads folder. Attach it to your Outlook email to the HOD.'
+          :'! Download failed - use the <b>Save My Copy</b> button below.')
+        :(_fileSaved?
+          'OK <b>'+fileName+'</b> downloaded. Print and file as hard copy.'
+          :'! Download failed - try again.');
+      flash('statusA',statusMsg,_fileSaved?'ok':'warn');
+      lockSection('A');unlockSection('E');
+    }else if(routeContext==='hod'){
+      const authName=authorityTarget==='dir'?'Director (Arno Pienaar)':'COO (Andre Van Tonder)';
+      statusMsg=channel==='Email'?
+        (_fileSaved?
+          'OK <b>'+fileName+'</b> downloaded. Attach it to your Outlook email to '+authName+'.'
+          :'! Download failed - use the <b>Save Copy</b> button.')
+        :(_fileSaved?
+          'OK <b>'+fileName+'</b> downloaded. Print and file.'
+          :'! Download failed - try again.');
+      flash('statusE',statusMsg,_fileSaved?'ok':'warn');
+      lockSection('E');unlockSection('F');
+    }else if(routeContext==='coo'){
+      statusMsg=channel==='Email'?
+        ('OK Saved <b>'+fileName+'</b> to your Downloads folder. '+
+         'In Outlook, attach that file from Downloads, then press Send to the applicant (HOD on CC).')
+        :(_fileSaved?
+          'OK New tab opened - Press <strong>Ctrl+S</strong> in that tab to save the form.'
+          :'! Pop-up blocked - allow pop-ups and retry.');
+      flash('statusF',statusMsg,_fileSaved?'ok':'warn');
+      lockSection('F');
+    }
+  },400);
+}
 function linkHtml(channel,url){
   if(channel==='Manual'||!url)return '';
-  return ' &nbsp;<a href="'+url+'" target="_blank" rel="noopener">If Outlook did not open, tap here -></a>';
+  return ' &nbsp;<a href="'+url+'" target="_blank" rel="noopener">If Outlook did not open, tap here ?</a>';
 }
 
 function buildSummary(){
   const g=id=>document.getElementById(id)?.value||'-';
   let s='BASTION SECURITY - LEAVE APPLICATION\n';
   s+='Ref: '+document.getElementById('refNo').textContent+'\n';
-  s+='-------------------------\n';
+  s+='?????????????????????????\n';
   s+='Name: '+g('empName')+'  ('+g('badge')+')\n';
   s+='Section: '+g('section')+'\n';
   LEAVE_TYPES.forEach(type=>{
@@ -1207,7 +1265,7 @@ function buildSummary(){
                  hasClash?'MANNING CLASH':'EXTENDED LEAVE (>'+MAX_DAYS+' days)';
     s+='OVERRIDE MOTIVATION ('+reason+'): '+motivation+'\n';
   }
-  s+='-------------------------\n';
+  s+='?????????????????????????\n';
   if(routeContext!=='submit'){
     const authLabel=authorityTarget==='dir'?'Director - Arno Pienaar':'COO - Andre Van Tonder';
     s+='HOD: '+g('hodName')+'\nRecommendation: '+g('hodDecision')+'\nForwarded to: '+authLabel+'\nHOD comments: '+g('hodComments')+'\n';
@@ -1216,7 +1274,7 @@ function buildSummary(){
     s+='Authority: '+g('cooName')+'\nDECISION: '+g('cooDecision')+'\n';
     if(g('cooDecision')==='Rejected')s+='Reason: '+g('rejectReason')+'\n';
   }
-  s+='-------------------------\nBastion Security . Form BS-LV-01';
+  s+='?????????????????????????\nBastion Security ? Form BS-LV-01';
   return s;
 }
 
@@ -1254,132 +1312,139 @@ function setFlag(id,txt,cls){
 function flash(id,msg,cls){const el=document.getElementById(id);el.innerHTML=msg;el.className='status '+(cls||'');}
 
 
-// -- URL STATE LINK SYSTEM -------------------------------------------------
+// == URL STATE LINK SYSTEM ==
 function buildStateLink(stage){
-  const state={v:3,stage:stage,rc:routeContext,at:authorityTarget,
-    dp:Object.fromEntries(dayPaint),f:{},c:{},d:{},t:{}};
-  document.querySelectorAll('input,select,textarea').forEach(el=>{
+  var state={v:4,stage:stage,rc:routeContext,at:authorityTarget,dp:{},f:{},c:{},d:{},t:{}};
+  dayPaint.forEach(function(v,k){state.dp[k]=v;});
+  document.querySelectorAll('input,select,textarea').forEach(function(el){
     if(!el.id)return;
     if(el.type==='checkbox'){if(el.checked)state.c[el.id]=true;}
     else if(el.value)state.f[el.id]=el.value;
   });
-  ['appSignDate','hodSignDate','cooSignDate'].forEach(id=>{
-    const el=document.getElementById(id);
-    if(el&&el.textContent.trim()&&el.textContent.trim()!=='-')state.d[id]=el.textContent.trim();
+  var dateIds=['appSignDate','hodSignDate','cooSignDate'];
+  dateIds.forEach(function(id){
+    var el=document.getElementById(id);
+    if(el&&el.textContent.trim()&&el.textContent.trim()!=='--')state.d[id]=el.textContent.trim();
   });
-  ['statusA','statusE','statusF','refNo'].forEach(id=>{
-    const el=document.getElementById(id);
+  var textIds=['statusA','statusE','statusF','refNo'];
+  textIds.forEach(function(id){
+    var el=document.getElementById(id);
     if(el&&el.textContent.trim())state.t[id]=el.textContent.trim();
   });
   try{
-    const b64=btoa(unescape(encodeURIComponent(JSON.stringify(state))));
+    var b64=btoa(unescape(encodeURIComponent(JSON.stringify(state))));
     return 'https://dereklbn.github.io/bastion-leave/?s='+b64;
   }catch(e){return null;}
 }
 
 function loadStateFromURL(){
   try{
-    const params=new URLSearchParams(window.location.search);
-    const b64=params.get('s');
+    var params=new URLSearchParams(window.location.search);
+    var b64=params.get('s');
     if(!b64)return false;
-    // Prevent double-loading
-    if(sessionStorage.getItem('stateLoaded')==='1'){
-      history.replaceState(null,'',window.location.pathname);
-      return false;
-    }
-    sessionStorage.setItem('stateLoaded','1');
-    const state=JSON.parse(decodeURIComponent(escape(atob(b64))));
-    if(!state||state.v!==3)return false;
-    history.replaceState(null,'',window.location.pathname+'?loaded=1');
-    setTimeout(()=>history.replaceState(null,'',window.location.pathname),100);
+    history.replaceState(null,'',window.location.pathname);
+    var state=JSON.parse(decodeURIComponent(escape(atob(b64))));
+    if(!state||state.v!==4)return false;
     if(state.dp){dayPaint=new Map(Object.entries(state.dp));renderCalendar();}
-    if(state.f){Object.entries(state.f).forEach(([id,val])=>{
-      const el=document.getElementById(id);if(el&&el.type!=='checkbox')el.value=val;
-    });}
-    if(state.c){Object.entries(state.c).forEach(([id])=>{
-      const el=document.getElementById(id);if(el&&el.type==='checkbox')el.checked=true;
-    });}
-    if(state.d){Object.entries(state.d).forEach(([id,val])=>{
-      const el=document.getElementById(id);if(el)el.textContent=val;
-    });}
-    if(state.t){Object.entries(state.t).forEach(([id,val])=>{
-      const el=document.getElementById(id);if(el)el.textContent=val;
-    });}
-    const empName=document.getElementById('empName');
-    if(empName&&empName.value){
-      // Find and select the matching option explicitly
-      const targetVal=empName.value;
-      let found=false;
-      for(let i=0;i<empName.options.length;i++){
-        if(empName.options[i].value===targetVal){
-          empName.selectedIndex=i;
-          found=true;
-          break;
+    if(state.f){
+      Object.entries(state.f).forEach(function(pair){
+        var id=pair[0],val=pair[1];
+        var el=document.getElementById(id);
+        if(!el||el.type==='checkbox')return;
+        el.value=val;
+        if(id==='empName'){
+          for(var i=0;i<el.options.length;i++){
+            if(el.options[i].value===val){el.selectedIndex=i;break;}
+          }
+          el.dispatchEvent(new Event('change'));
         }
-      }
-      if(found)empName.dispatchEvent(new Event('change'));
+      });
+    }
+    if(state.c){
+      Object.entries(state.c).forEach(function(pair){
+        var el=document.getElementById(pair[0]);
+        if(el&&el.type==='checkbox')el.checked=true;
+      });
+    }
+    if(state.d){
+      Object.entries(state.d).forEach(function(pair){
+        var el=document.getElementById(pair[0]);
+        if(el)el.textContent=pair[1];
+      });
+    }
+    if(state.t){
+      Object.entries(state.t).forEach(function(pair){
+        var el=document.getElementById(pair[0]);
+        if(el)el.textContent=pair[1];
+      });
     }
     if(state.rc)routeContext=state.rc;
     if(state.at)authorityTarget=state.at;
     if(state.stage==='hod'){lockSection('A');unlockSection('E');}
     if(state.stage==='coo'){lockSection('A');lockSection('E');unlockSection('F');}
     if(state.stage==='final'){lockSection('A');lockSection('E');lockSection('F');}
-    const color=state.stage==='hod'?'#1E3A5F':state.stage==='coo'?'#15803D':'#7C3AED';
-    const msgs={hod:'Applicant submission loaded - complete Section E then Sign & Forward',
-      coo:'HOD recommendation loaded - complete Section F then Sign & Return',
-      final:'Final decision loaded - application cycle complete'};
-    const b=document.createElement('div');
-    b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:9999;background:'+color+
+    var msgs={
+      hod:'Applicant submission loaded - complete Section E then Sign and Forward',
+      coo:'HOD recommendation loaded - complete Section F then Sign and Return',
+      final:'Final decision loaded - application cycle complete'
+    };
+    var colors={hod:'#1E3A5F',coo:'#15803D',final:'#7C3AED'};
+    var b=document.createElement('div');
+    b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:9999;background:'+(colors[state.stage]||'#1E3A5F')+
       ';color:#fff;text-align:center;padding:11px 20px;font-family:Arial,sans-serif;'+
       'font-size:13px;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.4)';
     b.textContent=msgs[state.stage]||'Form loaded';
     document.body.insertBefore(b,document.body.firstChild);
-    setTimeout(()=>b.remove(),7000);
+    setTimeout(function(){b.remove();},7000);
     return true;
   }catch(e){console.warn('State load error:',e);return false;}
 }
 
 function showRoutePanel(to,cc,subj,body,link,stage){
-  const ex=document.getElementById('routePanel');if(ex)ex.remove();
-  const colors={hod:'#1E3A5F',coo:'#15803D',final:'#7C3AED'};
-  const titles={hod:'Send to HOD',coo:'Send to COO / Director',final:'Return to Applicant'};
-  const c=colors[stage]||'#1E3A5F';
-  const p=document.createElement('div');
+  var ex=document.getElementById('routePanel');
+  if(ex)ex.remove();
+  var colors={hod:'#1E3A5F',coo:'#15803D',final:'#7C3AED'};
+  var titles={hod:'Send to HOD',coo:'Send to COO / Director',final:'Return to Applicant'};
+  var c=colors[stage]||'#1E3A5F';
+  var ml='mailto:'+encodeURIComponent(to)+'?cc='+encodeURIComponent(cc)+
+    '&subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+  var p=document.createElement('div');
   p.id='routePanel';
   p.style.cssText='margin:16px 0;padding:18px 20px;border-radius:10px;border:2px solid '+
     c+';background:#F0F7FF;font-family:Arial,sans-serif;font-size:12px';
-  const ml='mailto:'+encodeURIComponent(to)+'?cc='+encodeURIComponent(cc)+
-    '&subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
   p.innerHTML='<div style="font-weight:700;font-size:14px;color:'+c+';margin-bottom:10px">'+
-    ''+(titles[stage]||'Send Form')+'</div>'+
+    titles[stage]+'</div>'+
     '<div style="margin-bottom:6px"><b>To:</b> '+to+'</div>'+
     '<div style="margin-bottom:10px"><b>Subject:</b> '+subj+'</div>'+
-    '<div style="background:#fff;border:1px solid #D1D5DB;border-radius:6px;padding:10px;'+
-    'margin-bottom:12px;word-break:break-all;font-size:11px">'+
-    '<a href="'+link+'" target="_blank" style="color:'+c+';font-weight:700;text-decoration:underline;word-break:break-all">'+link+'</a></div>'+
+    '<div style="background:#fff;border:1px solid #D1D5DB;border-radius:6px;padding:10px;margin-bottom:12px">'+
+    '<a href="'+link+'" target="_blank" style="color:'+c+';font-weight:700;text-decoration:underline;word-break:break-all;font-size:11px">'+link+'</a></div>'+
     '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">'+
     '<button id="copyLinkBtn" style="background:'+c+';color:#fff;border:none;padding:9px 18px;'+
     'border-radius:6px;font-size:12px;font-weight:700;cursor:pointer">Copy Link</button>'+
     '<a href="'+ml+'" style="background:#fff;color:'+c+';border:2px solid '+c+';padding:9px 18px;'+
     'border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;display:inline-block">'+
     'Open in Outlook</a></div>'+
-    '<div style="color:#6B7280;font-size:10px">Copy the link and paste into your Outlook email, '+
-    'or click Open in Outlook to pre-fill automatically.</div>';
-  const statusId=routeContext==='submit'?'statusA':routeContext==='hod'?'statusE':'statusF';
-  const statusEl=document.getElementById(statusId);
+    '<div style="color:#6B7280;font-size:10px">Copy the link and paste it into your Outlook email. '+
+    'The recipient clicks the link and the form opens pre-filled at their stage.</div>';
+  var statusId=routeContext==='submit'?'statusA':routeContext==='hod'?'statusE':'statusF';
+  var statusEl=document.getElementById(statusId);
   if(statusEl&&statusEl.parentNode)statusEl.parentNode.insertBefore(p,statusEl.nextSibling);
   else document.querySelector('.sheet').appendChild(p);
   document.getElementById('copyLinkBtn').addEventListener('click',function(){
-    navigator.clipboard.writeText(link).then(()=>{
-      this.textContent='OK Copied!';setTimeout(()=>{this.textContent='Copy Link';},2000);
-    }).catch(()=>{prompt('Copy this link (Ctrl+C):',link);});
+    if(navigator.clipboard){
+      navigator.clipboard.writeText(link).then(function(){
+        document.getElementById('copyLinkBtn').textContent='Copied!';
+        setTimeout(function(){document.getElementById('copyLinkBtn').textContent='Copy Link';},2000);
+      });
+    }else{
+      prompt('Copy this link (Ctrl+C then Enter):',link);
+    }
   });
-  setTimeout(()=>p.scrollIntoView({behavior:'smooth',block:'start'}),200);
+  setTimeout(function(){p.scrollIntoView({behavior:'smooth',block:'start'});},200);
 }
-// -- END URL STATE LINK SYSTEM ---------------------------------------------
 
 function buildSnapshot(){
-  // -- Collect ALL form state into embedded JSON -----------------------------
+  // ?? Collect ALL form state into embedded JSON ?????????????????????????????
   const state={
     version:2,
     dayPaint:Object.fromEntries(dayPaint),
@@ -1400,7 +1465,7 @@ function buildSnapshot(){
     if(el)state.texts[id]=el.textContent;
   });
 
-  // -- Clone DOM and stamp values --------------------------------------------
+  // ?? Clone DOM and stamp values ????????????????????????????????????????????
   const doc=document.documentElement.cloneNode(true);
   const liveInputs=[...document.querySelectorAll('input,select,textarea')];
   const cloneInputs=[...doc.querySelectorAll('input,select,textarea')];
@@ -1428,14 +1493,14 @@ function buildSnapshot(){
     if(l&&c)c.innerHTML=l.innerHTML;
   });
 
-  // -- Embed full state as JSON script tag -----------------------------------
+  // ?? Embed full state as JSON script tag ???????????????????????????????????
   const sc=doc.createElement('script');
   sc.id='__bastionState'; sc.type='application/json';
   sc.textContent=JSON.stringify(state);
   const h=doc.querySelector('head');
   if(h)h.appendChild(sc);
 
-  // -- Filed stamp -----------------------------------------------------------
+  // ?? Filed stamp ???????????????????????????????????????????????????????????
   const stamp=doc.createElement('div');
   stamp.style.cssText='background:#13294B;color:#C8A04B;text-align:center;padding:10px;'+
     'font-size:11px;font-weight:700;letter-spacing:.1em;font-family:Arial,sans-serif;'+

@@ -1129,15 +1129,12 @@ function selectAuthority(who, silent){
 }
 
 function route(channel){
-  closeModal();
-  const summary=buildSummary();
+  // ── SAVE FILE first — synchronously within user gesture (Chrome requires this) ─
   const appName=document.getElementById('empName').value||'Applicant';
   const ref=document.getElementById('refNo').textContent;
   const stageLabel=routeContext==='submit'?'SubmittedByApplicant':
                    routeContext==='hod'?'HODRecommended':'FinalDecision';
   const fileName='Bastion_Leave_'+appName.replace(/\s+/g,'_')+'_'+ref+'_'+stageLabel+'.html';
-
-  // ── SAVE FILE — Blob download (works from https:// GitHub Pages) ──────────
   const _snap=buildSnapshot();
   let _fileSaved=false;
   try{
@@ -1149,6 +1146,8 @@ function route(channel){
     setTimeout(()=>{URL.revokeObjectURL(_url);document.body.removeChild(_a);},2000);
     _fileSaved=true;
   }catch(_e){_fileSaved=false;}
+  closeModal();
+  const summary=buildSummary();
 
   // ── Step 2: Open Outlook (or print) ───────────────────────────────────────
   setTimeout(()=>{

@@ -1154,10 +1154,15 @@ function route(channel){
     cc=HOD1+','+HOD2+','+(authorityTarget==='dir'?DIR:COO);
   }
   const stageNames={submit:'HOD Recommendation required',hod:'COO/Director Approval required',coo:'Final Decision — Return to Applicant'};
-  const body='Please action the leave application below.\n\nAPPLICANT: '+appName+'\nREF: '+ref+
+  const body='Please action the leave application below.'+
+    '\n\nAPPLICANT: '+appName+
+    '\nREF: '+ref+
     '\nACTION REQUIRED: '+stageNames[routeContext]+
-    '\n\nOpen the form at the link below (pre-filled at your stage):\n\n'+stateLink+
+    '\n\nCLICK LINK BELOW TO OPEN FORM (pre-filled at your stage):'+
+    '\n<'+stateLink+'>'+
+    '\n\nIf the link does not open, copy the full link and paste into your browser address bar.'+
     '\n\nBastion Security Leave Management System | GOV Contract 2026–2029';
+  console.log('STATE LINK:',stateLink);
   showRoutePanel(to,cc,subj,body,stateLink,stageLabel);
   if(routeContext==='submit'){
     flash('statusA','✓ Application submitted. Copy the link below and email it to the HOD.','ok');
@@ -1268,19 +1273,20 @@ function buildStateLink(stage){
   });
   try{
     const b64=btoa(unescape(encodeURIComponent(JSON.stringify(state))));
-    return 'https://dereklbn.github.io/bastion-leave/#s='+b64;
+    return 'https://dereklbn.github.io/bastion-leave/?s='+b64;
   }catch(e){return null;}
 }
 
 function loadStateFromURL(){
   try{
-    const hash=window.location.hash;
-    if(!hash||!hash.includes('#s='))return false;
-    const b64=hash.split('#s=')[1].split('&')[0];
+    const params=new URLSearchParams(window.location.search);
+    const b64=params.get('s');
+    if(!b64)return false;
     if(!b64)return false;
     const state=JSON.parse(decodeURIComponent(escape(atob(b64))));
     if(!state||state.v!==3)return false;
-    history.replaceState(null,'',window.location.pathname);
+    history.replaceState(null,'',window.location.pathname+'?loaded=1');
+    setTimeout(()=>history.replaceState(null,'',window.location.pathname),100);
     if(state.dp){dayPaint=new Map(Object.entries(state.dp));renderCalendar();}
     if(state.f){Object.entries(state.f).forEach(([id,val])=>{
       const el=document.getElementById(id);if(el&&el.type!=='checkbox')el.value=val;
@@ -1332,8 +1338,8 @@ function showRoutePanel(to,cc,subj,body,link,stage){
     '<div style="margin-bottom:6px"><b>To:</b> '+to+'</div>'+
     '<div style="margin-bottom:10px"><b>Subject:</b> '+subj+'</div>'+
     '<div style="background:#fff;border:1px solid #D1D5DB;border-radius:6px;padding:10px;'+
-    'margin-bottom:12px;word-break:break-all;color:'+c+';font-weight:600;font-size:11px">'+
-    link+'</div>'+
+    'margin-bottom:12px;word-break:break-all;font-size:11px">'+
+    '<a href="'+link+'" target="_blank" style="color:'+c+';font-weight:700;text-decoration:underline;word-break:break-all">'+link+'</a></div>'+
     '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">'+
     '<button id="copyLinkBtn" style="background:'+c+';color:#fff;border:none;padding:9px 18px;'+
     'border-radius:6px;font-size:12px;font-weight:700;cursor:pointer">📋 Copy Link</button>'+

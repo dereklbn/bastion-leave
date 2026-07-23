@@ -415,7 +415,7 @@
       </div>
       <!-- ── Email Fallback Panel ─────────────────────────────────────────── -->
       <div id="emailFallback">
-        <h3>📧 Open Outlook → New Email → copy the fields below</h3>
+        <h3>Open Outlook → New Email → copy the fields below</h3>
         <div class="fb-note">
           <b>3 steps:</b><br>
           1. Open <b>Outlook</b> → click <b>New Email</b><br>
@@ -424,7 +424,7 @@
           &nbsp;<b><span id="fbFileName" style="color:#13294B;background:#FEF3C7;padding:1px 6px;border-radius:3px;font-size:10px"></span></b>
         </div>
         <div class="fb-field">
-          <div class="fb-label">📧 To — click To: in Outlook and paste this</div>
+          <div class="fb-label">To — click To: in Outlook and paste this</div>
           <div class="fb-val" id="fbTo"></div>
           <button class="fb-copy" style="margin-top:4px;padding:4px 12px;font-size:10px" onclick="copyField(&#39;fbTo&#39;,this)">📋 Copy</button>
         </div>
@@ -578,7 +578,7 @@ const MANNING_SECTIONS={
   "Minnaar Fullard":"NJOC","Derek Skolnic":"NJOC",
   "Pieter Klue":"QRF/Trg","Matthys De Villiers":"QRF/Trg"
 };
-// Approved future leave per employee — update this whenever new leave is approved.
+// Approved future leave per employee - update this whenever new leave is approved.
 // Format: Set of ISO date strings ('2026-07-22') where that member is on approved leave.
 // HOD updates this data in the form file after each approval until Phase 2 connects live.
 const APPROVED_LEAVE={
@@ -587,8 +587,8 @@ const APPROVED_LEAVE={
   "Pieter Klue":new Set([]),
   "Matthys De Villiers":new Set([])
 };
-// Eswatini Public Holidays 2026 — gazette dates for visual highlighting
-// Update each year when gazette is published. No logic depends on this list —
+// Eswatini Public Holidays 2026 - gazette dates for visual highlighting
+// Update each year when gazette is published. No logic depends on this list -
 // purely for the soft highlight on the leave calendar.
 const PH_DATES_2026=new Set([
   '2026-01-01','2026-03-16','2026-04-03','2026-04-06',
@@ -604,37 +604,37 @@ const PH_LABELS_2026={
   '2026-04-20':'King\u2019s Birthday',
   '2026-04-21':'HMK Birthday Day Off',
   '2026-04-25':'National Flag Day',
-  '2026-05-01':'Worker’s Day',
+  '2026-05-01':'Workers Day',
   '2026-05-14':'Ascension Day',
   '2026-07-22':'King Sobhuza Birthday',
   '2026-09-01':'Umhlanga Day',
-  '2026-09-06':'Somhlolo Day (Independence)',
-  '2026-09-08':'Day Off for Somhlolo',
+  '2026-09-06':"Somhlolo Day (Independence)",
+  '2026-09-08':"Day Off for Somhlolo",
   '2026-12-18':'Incwala Day',
   '2026-12-25':'Christmas Day',
   '2026-12-26':'Boxing Day',
-  '2026-12-29':'Day Off for Incwala'
+  '2026-12-29':"Day Off for Incwala"
 };
 
 const HOD_EMAIL_MINNAAR="minnaar.fullard@bastionsecurity.org";
 const HOD_EMAIL_DEREK="derek@bastionsecurity.org";
 const COO_EMAIL="andre@bastionsecurity.org";
 const DIR_EMAIL="arno@bastionsecurity.org";
-const CC_ADMIN_1="sethu@bastionsecurity.org";      // Additional CC — Decision 2
-const CC_ADMIN_2="andriesp@bastionsecurity.org";   // Additional CC — Decision 2
+const CC_ADMIN_1="sethu@bastionsecurity.org";      // Additional CC - Decision 2
+const CC_ADMIN_2="andriesp@bastionsecurity.org";   // Additional CC - Decision 2
 let routeContext="submit";
 let authorityTarget="coo"; // default COO; HOD can switch to Director
 
-// calendar state — single continuous calendar, days painted by leave type
+// calendar state - single continuous calendar, days painted by leave type
 const today=new Date();
 const calView={year:today.getFullYear(),month:today.getMonth()};
 const LEAVE_TYPES=['DO','L','SL','CL'];
-const LEAVE_LABELS={DO:'DO — Days Off',L:'L — Annual Leave',SL:'SL — Sick Leave',CL:'CL — Compassionate'};
+const LEAVE_LABELS={DO:'DO - Days Off',L:'L - Annual Leave',SL:'SL - Sick Leave',CL:'CL - Compassionate'};
 // dayPaint: ISO date string -> leave type code ('DO'|'L'|'SL'|'CL')
 const dayPaint=new Map();
 let activePaintType='DO';
 
-// ── State restoration — runs when HOD/Director opens saved file ──────────────
+// -- State restoration - runs when HOD/Director opens saved file --------------
 function restoreSnapshot(){
   const sc=document.getElementById('__bastionState');
   if(!sc)return false;
@@ -659,9 +659,9 @@ function restoreSnapshot(){
       const el=document.getElementById(id);if(el)el.textContent=txt;
     });
     // Unlock sections based on workflow stage
-    // routeContext='submit' means HOD needs to act → unlock E
-    // routeContext='hod' means Director/COO needs to act → unlock E+F
-    // routeContext='coo' means returning to applicant → E+F readable
+    // routeContext='submit' means HOD needs to act -> unlock E
+    // routeContext='hod' means Director/COO needs to act -> unlock E+F
+    // routeContext='coo' means returning to applicant -> E+F readable
     if(st.routeContext==='submit'||st.routeContext==='hod'||st.routeContext==='coo'){
       unlockSection('E');
     }
@@ -672,7 +672,7 @@ function restoreSnapshot(){
     const b=document.createElement('div');
     b.style.cssText='background:#DCFCE7;color:#15803D;text-align:center;padding:10px 20px;'+
       'font-size:12px;font-weight:700;border-bottom:3px solid #15803D;font-family:Arial,sans-serif';
-    b.textContent='\u2713 Application data loaded from saved copy — all fields restored. Scroll down to complete your section.';
+    b.textContent='\u2713 Application data loaded from saved copy - all fields restored. Scroll down to complete your section.';
     document.body.insertBefore(b,document.body.firstChild);
     return true;
   }catch(e){console.error('Restore failed:',e);return false;}
@@ -681,7 +681,7 @@ function restoreSnapshot(){
 addEventListener('load',()=>{
   const restored=restoreSnapshot();
   if(!restored){
-    // Fresh form — set date and generate reference
+    // Fresh form - set date and generate reference
     document.getElementById('appDate').value=today.toISOString().slice(0,10);
     document.getElementById('refNo').textContent=
       'BS-LV-'+today.getFullYear()+'-'+String(Math.floor(Math.random()*9000)+1000);
@@ -693,7 +693,7 @@ addEventListener('load',()=>{
 function iso(y,m,d){return y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');}
 function fmtNow(){const d=new Date();
   return d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+
-    ' · '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});}
+    ' . '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});}
 function fmtDate(){return new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});}
 function prettyISO(s){const d=new Date(s+'T00:00:00');
   return d.toLocaleDateString('en-GB',{weekday:'short',day:'2-digit',month:'short',year:'numeric'});}
@@ -726,8 +726,8 @@ function renderExcessWarning(){
   }else{
     const over=total-MAX_DAYS;
     box.style.display='block';
-    box.innerHTML='<b>⚠ Leave period exceeds '+MAX_DAYS+' days:</b> You have selected <b>'+
-      total+' days</b> — '+over+' day'+(over>1?'s':'')+
+    box.innerHTML='<b>! Leave period exceeds '+MAX_DAYS+' days:</b> You have selected <b>'+
+      total+' days</b> - '+over+' day'+(over>1?'s':'')+
       ' over the standard '+MAX_DAYS+'-day maximum per application. '+
       'Provide a motivation below explaining why this extended period is required.';
   }
@@ -743,11 +743,11 @@ function updateMotivationHeader(){
   const el=document.getElementById('motivationHdrReason');
   if(!el)return;
   if(hasClash&&hasExcess)
-    el.textContent='manning clash + extended leave — mandatory motivation';
+    el.textContent='manning clash + extended leave - mandatory motivation';
   else if(hasClash)
-    el.textContent='manning clash — mandatory motivation';
+    el.textContent='manning clash - mandatory motivation';
   else if(hasExcess)
-    el.textContent='extended leave — mandatory motivation';
+    el.textContent='extended leave - mandatory motivation';
 }
 function renderClashWarning(){
   const clashes=findClashDates();
@@ -760,9 +760,9 @@ function renderClashWarning(){
     const section=MANNING_SECTIONS[name];
     const list=clashes.map(d=>prettyISO(d)).join(', ');
     box.style.display='block';
-    box.innerHTML='<b>⚠ Manning clash — '+section+' section:</b> '+
+    box.innerHTML='<b>! Manning clash - '+section+' section:</b> '+
       (clashes.length===1?'This day':'These days')+
-      ' (<b>'+list+'</b>) overlap with <b>'+partner+'’s</b> approved leave. '+
+      ' (<b>'+list+'</b>) overlap with <b>'+partner+''s</b> approved leave. '+
       'At least one '+section+' member must remain BOG at all times. '+
       'Provide a motivation below.';
   }
@@ -823,9 +823,9 @@ function renderLeaveSummary(){
     const opts={day:'2-digit',month:'short'};
     const sy=s.getFullYear(),ey=e.getFullYear();
     if(sy===ey)
-      return s.toLocaleDateString('en-GB',opts)+' – '+e.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+      return s.toLocaleDateString('en-GB',opts)+' - '+e.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
     return s.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+
-      ' – '+e.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+      ' - '+e.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
   }
 
   const typeOrder=['DO','L','CL','SL'];
@@ -853,7 +853,7 @@ function renderLeaveSummary(){
     const first=new Date(allDates[0]+'T00:00:00');
     const last=new Date(allDates[allDates.length-1]+'T00:00:00');
     const opts={day:'2-digit',month:'short',year:'numeric'};
-    rangeEl.textContent=first.toLocaleDateString('en-GB',opts)+' – '+last.toLocaleDateString('en-GB',opts);
+    rangeEl.textContent=first.toLocaleDateString('en-GB',opts)+' - '+last.toLocaleDateString('en-GB',opts);
   }
 
   panel.style.display='block';
@@ -884,8 +884,8 @@ function renderGapWarning(){
   }
   const list=gaps.map(d=>prettyISO(d)).join(', ');
   box.style.display='block';
-  box.innerHTML='<b>⚠ Gap in leave period:</b> the following day'+(gaps.length>1?'s':'')+
-    ' inside your selected range '+(gaps.length>1?'are':'is')+' not assigned a leave type — '+
+  box.innerHTML='<b>! Gap in leave period:</b> the following day'+(gaps.length>1?'s':'')+
+    ' inside your selected range '+(gaps.length>1?'are':'is')+' not assigned a leave type - '+
     '<b>'+list+'</b>. Leave must be continuous with no open days. '+
     'Paint '+(gaps.length>1?'these days':'this day')+' or split into separate applications.';
   return gaps;
@@ -917,7 +917,7 @@ function renderCal(){
     if(PH_DATES_2026.has(dISO)){
       cell.classList.add('ph-day');
       cell.title=(PH_LABELS_2026[dISO]||'Public Holiday')+
-        ' — higher alert status. Plan leave carefully around this date.';
+        ' - higher alert status. Plan leave carefully around this date.';
     }
     cell.onclick=()=>{
       if(dayPaint.get(dISO)===activePaintType){
@@ -963,7 +963,7 @@ function renderBalGrid(){
     card.className='bal-card bal-'+type;
     card.id='balCard_'+type;
     card.innerHTML='<div class="bt">'+type+'</div><div class="bd" id="balDays_'+type+'">0 days</div>'+
-      '<div class="bv" id="balVal_'+type+'">—</div>';
+      '<div class="bv" id="balVal_'+type+'">-</div>';
     grid.appendChild(card);
   });
 }
@@ -1021,7 +1021,7 @@ function recalcBalance(){
       valEl.textContent=(v!==null? v+'d rem.':'n/a');
       valEl.style.color=(v!==null? balanceColor(v):'var(--grey)');
     }else{
-      valEl.textContent='—';valEl.style.color='var(--grey)';
+      valEl.textContent='-';valEl.style.color='var(--grey)';
     }
   });
 }
@@ -1123,7 +1123,7 @@ function selectAuthority(who, silent){
   dir.style.background=who==='dir'?'var(--steel-light)':'#fff';
   if(!silent){
     document.getElementById('routeMsg').innerHTML=
-      'Authority selected: <b>'+(who==='coo'?'COO — Andre Van Tonder':'Director — Arno Pienaar')+
+      'Authority selected: <b>'+(who==='coo'?'COO - Andre Van Tonder':'Director - Arno Pienaar')+
       '</b>. Now confirm to send by email:';
   }
 }
@@ -1136,7 +1136,7 @@ function route(channel){
   const stateLink=buildStateLink(stageLabel);
   if(!stateLink){alert('Could not generate link. Please try again.');return;}
   let to='',cc='';
-  const subj='[BS-LV] Leave Application — '+appName+' — '+ref;
+  const subj='[BS-LV] Leave Application - '+appName+' - '+ref;
   const HOD1='minnaar.fullard@bastionsecurity.org';
   const HOD2='derek@bastionsecurity.org';
   const DIR='arno.pienaar@bastionsecurity.org';
@@ -1153,7 +1153,7 @@ function route(channel){
     to=empMap[badge]||HOD2;
     cc=HOD1+','+HOD2+','+(authorityTarget==='dir'?DIR:COO);
   }
-  const stageNames={submit:'HOD Recommendation required',hod:'COO/Director Approval required',coo:'Final Decision — Return to Applicant'};
+  const stageNames={submit:'HOD Recommendation required',hod:'COO/Director Approval required',coo:'Final Decision - Return to Applicant'};
   const body='Please action the leave application below.'+
     '\n\nAPPLICANT: '+appName+
     '\nREF: '+ref+
@@ -1161,32 +1161,32 @@ function route(channel){
     '\n\nCLICK LINK BELOW TO OPEN FORM (pre-filled at your stage):'+
     '\n<'+stateLink+'>'+
     '\n\nIf the link does not open, copy the full link and paste into your browser address bar.'+
-    '\n\nBastion Security Leave Management System | GOV Contract 2026–2029';
+    '\n\nBastion Security Leave Management System | GOV Contract 2026-2029';
   console.log('STATE LINK:',stateLink);
   showRoutePanel(to,cc,subj,body,stateLink,stageLabel);
   if(routeContext==='submit'){
-    flash('statusA','✓ Application submitted. Copy the link below and email it to the HOD.','ok');
+    flash('statusA','Application submitted. Copy the link below and email it to the HOD.','ok');
     lockSection('A');unlockSection('E');
   }else if(routeContext==='hod'){
     const authName=authorityTarget==='dir'?'Director (Arno Pienaar)':'COO (Andre Van Tonder)';
-    flash('statusE','✓ HOD recommendation recorded. Send the link below to '+authName+'.','ok');
+    flash('statusE','HOD recommendation recorded. Send the link below to '+authName+'.','ok');
     lockSection('E');unlockSection('F');
   }else if(routeContext==='coo'){
-    flash('statusF','✓ Final decision recorded. Send the link below to the applicant.','ok');
+    flash('statusF','Final decision recorded. Send the link below to the applicant.','ok');
     lockSection('F');
   }
 }
 
 function linkHtml(channel,url){
   if(channel==='Manual'||!url)return '';
-  return ' &nbsp;<a href="'+url+'" target="_blank" rel="noopener">If Outlook did not open, tap here ↗</a>';
+  return ' &nbsp;<a href="'+url+'" target="_blank" rel="noopener">If Outlook did not open, tap here -></a>';
 }
 
 function buildSummary(){
-  const g=id=>document.getElementById(id)?.value||'—';
-  let s='BASTION SECURITY — LEAVE APPLICATION\n';
+  const g=id=>document.getElementById(id)?.value||'-';
+  let s='BASTION SECURITY - LEAVE APPLICATION\n';
   s+='Ref: '+document.getElementById('refNo').textContent+'\n';
-  s+='─────────────────────────\n';
+  s+='-------------------------\n';
   s+='Name: '+g('empName')+'  ('+g('badge')+')\n';
   s+='Section: '+g('section')+'\n';
   LEAVE_TYPES.forEach(type=>{
@@ -1207,16 +1207,16 @@ function buildSummary(){
                  hasClash?'MANNING CLASH':'EXTENDED LEAVE (>'+MAX_DAYS+' days)';
     s+='OVERRIDE MOTIVATION ('+reason+'): '+motivation+'\n';
   }
-  s+='─────────────────────────\n';
+  s+='-------------------------\n';
   if(routeContext!=='submit'){
-    const authLabel=authorityTarget==='dir'?'Director — Arno Pienaar':'COO — Andre Van Tonder';
+    const authLabel=authorityTarget==='dir'?'Director - Arno Pienaar':'COO - Andre Van Tonder';
     s+='HOD: '+g('hodName')+'\nRecommendation: '+g('hodDecision')+'\nForwarded to: '+authLabel+'\nHOD comments: '+g('hodComments')+'\n';
   }
   if(routeContext==='coo'){
     s+='Authority: '+g('cooName')+'\nDECISION: '+g('cooDecision')+'\n';
     if(g('cooDecision')==='Rejected')s+='Reason: '+g('rejectReason')+'\n';
   }
-  s+='─────────────────────────\nBastion Security · Form BS-LV-01';
+  s+='-------------------------\nBastion Security . Form BS-LV-01';
   return s;
 }
 
@@ -1254,7 +1254,7 @@ function setFlag(id,txt,cls){
 function flash(id,msg,cls){const el=document.getElementById(id);el.innerHTML=msg;el.className='status '+(cls||'');}
 
 
-// ── URL STATE LINK SYSTEM ─────────────────────────────────────────────────
+// -- URL STATE LINK SYSTEM -------------------------------------------------
 function buildStateLink(stage){
   const state={v:3,stage:stage,rc:routeContext,at:authorityTarget,
     dp:Object.fromEntries(dayPaint),f:{},c:{},d:{},t:{}};
@@ -1265,7 +1265,7 @@ function buildStateLink(stage){
   });
   ['appSignDate','hodSignDate','cooSignDate'].forEach(id=>{
     const el=document.getElementById(id);
-    if(el&&el.textContent.trim()&&el.textContent.trim()!=='—')state.d[id]=el.textContent.trim();
+    if(el&&el.textContent.trim()&&el.textContent.trim()!=='-')state.d[id]=el.textContent.trim();
   });
   ['statusA','statusE','statusF','refNo'].forEach(id=>{
     const el=document.getElementById(id);
@@ -1308,14 +1308,14 @@ function loadStateFromURL(){
     if(state.stage==='coo'){lockSection('A');lockSection('E');unlockSection('F');}
     if(state.stage==='final'){lockSection('A');lockSection('E');lockSection('F');}
     const color=state.stage==='hod'?'#1E3A5F':state.stage==='coo'?'#15803D':'#7C3AED';
-    const msgs={hod:'✅ Applicant submission loaded — complete Section E then Sign & Forward',
-      coo:'✅ HOD recommendation loaded — complete Section F then Sign & Return',
-      final:'✅ Final decision loaded — application cycle complete'};
+    const msgs={hod:'Applicant submission loaded - complete Section E then Sign & Forward',
+      coo:'HOD recommendation loaded - complete Section F then Sign & Return',
+      final:'Final decision loaded - application cycle complete'};
     const b=document.createElement('div');
     b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:9999;background:'+color+
       ';color:#fff;text-align:center;padding:11px 20px;font-family:Arial,sans-serif;'+
       'font-size:13px;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.4)';
-    b.textContent=msgs[state.stage]||'✅ Form loaded';
+    b.textContent=msgs[state.stage]||'Form loaded';
     document.body.insertBefore(b,document.body.firstChild);
     setTimeout(()=>b.remove(),7000);
     return true;
@@ -1334,7 +1334,7 @@ function showRoutePanel(to,cc,subj,body,link,stage){
   const ml='mailto:'+encodeURIComponent(to)+'?cc='+encodeURIComponent(cc)+
     '&subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
   p.innerHTML='<div style="font-weight:700;font-size:14px;color:'+c+';margin-bottom:10px">'+
-    '📧 '+(titles[stage]||'Send Form')+'</div>'+
+    ''+(titles[stage]||'Send Form')+'</div>'+
     '<div style="margin-bottom:6px"><b>To:</b> '+to+'</div>'+
     '<div style="margin-bottom:10px"><b>Subject:</b> '+subj+'</div>'+
     '<div style="background:#fff;border:1px solid #D1D5DB;border-radius:6px;padding:10px;'+
@@ -1342,10 +1342,10 @@ function showRoutePanel(to,cc,subj,body,link,stage){
     '<a href="'+link+'" target="_blank" style="color:'+c+';font-weight:700;text-decoration:underline;word-break:break-all">'+link+'</a></div>'+
     '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">'+
     '<button id="copyLinkBtn" style="background:'+c+';color:#fff;border:none;padding:9px 18px;'+
-    'border-radius:6px;font-size:12px;font-weight:700;cursor:pointer">📋 Copy Link</button>'+
+    'border-radius:6px;font-size:12px;font-weight:700;cursor:pointer">Copy Link</button>'+
     '<a href="'+ml+'" style="background:#fff;color:'+c+';border:2px solid '+c+';padding:9px 18px;'+
     'border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;display:inline-block">'+
-    '✉️ Open in Outlook</a></div>'+
+    'Open in Outlook</a></div>'+
     '<div style="color:#6B7280;font-size:10px">Copy the link and paste into your Outlook email, '+
     'or click Open in Outlook to pre-fill automatically.</div>';
   const statusId=routeContext==='submit'?'statusA':routeContext==='hod'?'statusE':'statusF';
@@ -1354,15 +1354,15 @@ function showRoutePanel(to,cc,subj,body,link,stage){
   else document.querySelector('.sheet').appendChild(p);
   document.getElementById('copyLinkBtn').addEventListener('click',function(){
     navigator.clipboard.writeText(link).then(()=>{
-      this.textContent='✅ Copied!';setTimeout(()=>{this.textContent='📋 Copy Link';},2000);
+      this.textContent='OK Copied!';setTimeout(()=>{this.textContent='Copy Link';},2000);
     }).catch(()=>{prompt('Copy this link (Ctrl+C):',link);});
   });
   setTimeout(()=>p.scrollIntoView({behavior:'smooth',block:'start'}),200);
 }
-// ── END URL STATE LINK SYSTEM ─────────────────────────────────────────────
+// -- END URL STATE LINK SYSTEM ---------------------------------------------
 
 function buildSnapshot(){
-  // ── Collect ALL form state into embedded JSON ─────────────────────────────
+  // -- Collect ALL form state into embedded JSON -----------------------------
   const state={
     version:2,
     dayPaint:Object.fromEntries(dayPaint),
@@ -1383,7 +1383,7 @@ function buildSnapshot(){
     if(el)state.texts[id]=el.textContent;
   });
 
-  // ── Clone DOM and stamp values ────────────────────────────────────────────
+  // -- Clone DOM and stamp values --------------------------------------------
   const doc=document.documentElement.cloneNode(true);
   const liveInputs=[...document.querySelectorAll('input,select,textarea')];
   const cloneInputs=[...doc.querySelectorAll('input,select,textarea')];
@@ -1411,19 +1411,19 @@ function buildSnapshot(){
     if(l&&c)c.innerHTML=l.innerHTML;
   });
 
-  // ── Embed full state as JSON script tag ───────────────────────────────────
+  // -- Embed full state as JSON script tag -----------------------------------
   const sc=doc.createElement('script');
   sc.id='__bastionState'; sc.type='application/json';
   sc.textContent=JSON.stringify(state);
   const h=doc.querySelector('head');
   if(h)h.appendChild(sc);
 
-  // ── Filed stamp ───────────────────────────────────────────────────────────
+  // -- Filed stamp -----------------------------------------------------------
   const stamp=doc.createElement('div');
   stamp.style.cssText='background:#13294B;color:#C8A04B;text-align:center;padding:10px;'+
     'font-size:11px;font-weight:700;letter-spacing:.1em;font-family:Arial,sans-serif;'+
     'border-bottom:3px solid #C8A04B';
-  stamp.textContent='BASTION SECURITY — OFFICIAL LEAVE APPLICATION — FILED: '+
+  stamp.textContent='BASTION SECURITY - OFFICIAL LEAVE APPLICATION - FILED: '+
     new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+
     ' '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
   const b=doc.querySelector('body');
@@ -1458,7 +1458,7 @@ function saveCopy(){
 function showSaveConfirm(fname){
   const box=document.getElementById('saveCopyStatus');
   if(box){
-    box.innerHTML='\u2713 Saved: <strong>'+fname+'</strong> — check your Downloads folder. Attach this file to your Outlook email.';
+    box.innerHTML='\u2713 Saved: <strong>'+fname+'</strong> - check your Downloads folder. Attach this file to your Outlook email.';
     box.style.background='#DCFCE7';box.style.color='#15803D';
     box.style.display='block';
     setTimeout(()=>box.style.display='none',8000);
@@ -1472,7 +1472,7 @@ function resetForm(){
   calView.year=today.getFullYear();calView.month=today.getMonth();
   selectPaintType('DO');
   renderCal();renderBalGrid();updateDates();
-  ['appSignDate','hodSignDate','cooSignDate'].forEach(id=>document.getElementById(id).textContent='—');
+  ['appSignDate','hodSignDate','cooSignDate'].forEach(id=>document.getElementById(id).textContent='-');
   ['statusA','statusE','statusF'].forEach(id=>{const el=document.getElementById(id);el.innerHTML='';el.className='status';});
   ['gridE','signE','gridF','signF'].forEach(id=>document.getElementById(id).classList.add('locked'));
   document.getElementById('actionsE').style.opacity='.5';document.getElementById('actionsE').style.pointerEvents='none';
